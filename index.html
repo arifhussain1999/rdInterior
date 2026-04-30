@@ -1,0 +1,4093 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R&D Dream – Designing Spaces That Define Luxury Living</title>
+  <meta name="description"
+    content="Premium luxury interior design studio. We transform houses into dream homes with bespoke interior solutions. 500+ projects completed." />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&family=Prata&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --gold: #d4af37; /* More refined brushed gold */
+      --gold-glow: rgba(212, 175, 55, 0.15);
+      --black: #050505; /* Deeper black */
+      --near-black: #0c0c0c;
+      --dark-grey: #1a1a1a;
+      --white: #ffffff;
+      --text-dim: #a0a0a0;
+      --serif: 'Playfair Display', serif;
+      --sans: 'Montserrat', sans-serif;
+      --spacing: 6rem;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 15px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--gold) var(--black);
+    }
+
+    body {
+      background-color: var(--black);
+      background-image: 
+        radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.05) 1px, transparent 0);
+      background-size: 40px 40px;
+      color: var(--white);
+      font-family: var(--sans);
+      line-height: 1.8;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Custom cursor */
+    .cursor {
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 10000;
+      transition: transform 0.1s ease;
+      mix-blend-mode: difference;
+    }
+
+    .cursor-follower {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transition: all 0.15s ease;
+      opacity: 0.6;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--black);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold);
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 5%;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    nav.scrolled {
+      background: rgba(5, 5, 5, 0.8);
+      backdrop-filter: blur(20px) saturate(180%);
+      padding: 1.2rem 5%;
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 90px;
+      width: auto;
+      object-fit: contain;
+      filter: invert(1) brightness(1.1);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-text span:first-child {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.08em;
+    }
+
+    .logo-text span:last-child {
+      font-family: var(--sans);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold) !important;
+      padding: 0.9rem 2.4rem;
+      font-size: 0.7rem !important;
+      letter-spacing: 0.2em !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease !important;
+      font-family: var(--sans);
+    }
+
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--black) !important;
+    }
+
+    .nav-cta::after {
+      display: none !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--white);
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--near-black);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--gold);
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 5%;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ─── HERO ─── */
+    #home {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(5,5,5,0.4), var(--black)),
+        url('assets/projects/living-velvet.png') center/cover no-repeat;
+      transform: scale(1.05);
+      animation: heroZoom 20s ease-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1); }
+      to   { transform: scale(1.15); }
+    }
+
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    /* Gold line top */
+    .hero-line-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 40%, var(--gold) 60%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 5%;
+      max-width: 1100px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    }
+
+    .hero-tag::before,
+    .hero-tag::after {
+      content: '';
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.3;
+    }
+
+    .hero-h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6.5vw, 6rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+    }
+
+    .hero-h1 em {
+      font-family: 'Prata', serif;
+      font-style: italic;
+      color: var(--gold);
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 650px;
+      margin: 0 auto 3.5rem;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.9s forwards;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--gold);
+      color: var(--black);
+      padding: 1.1rem 2.8rem;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-gold:hover {
+      background: transparent;
+      color: var(--gold);
+      box-shadow: 0 10px 20px var(--gold-glow);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: transparent;
+      color: var(--white);
+      padding: 1.1rem 2.8rem;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--glass-border);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-glow);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    .hero-scroll span {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px);
+      }
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 5%;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .stat {
+      text-align: center;
+      opacity: 0;
+      animation: fadeUp 0.9s 1.1s forwards;
+    }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--gold);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-top: 4px;
+    }
+
+    /* ─── SECTION COMMONS ─── */
+    section {
+      padding: 7rem 5%;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: clamp(0.6rem, 1.8vw, 0.7rem);
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-tag::before,
+    .section-tag::after {
+      content: '';
+      width: clamp(20px, 4vw, 40px);
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .section-title em {
+      font-family: 'Prata', serif;
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .section-sub {
+      font-size: clamp(0.9rem, 2.5vw, 1rem);
+      color: var(--text-dim);
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      font-weight: 300;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-center .section-tag {
+      justify-content: center;
+    }
+
+    .text-center .section-tag::before {
+      display: none;
+    }
+
+    .text-center .section-tag::after {
+      content: '';
+      width: 35px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .text-center .section-sub {
+      margin: 0 auto;
+    }
+
+    /* reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── MARQUEE ─── */
+    .marquee-wrap {
+      background: var(--gold);
+      padding: 1rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-track {
+      display: inline-flex;
+      gap: 3rem;
+      animation: marquee 20s linear infinite;
+    }
+
+    .marquee-item {
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: var(--black);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .marquee-item::after {
+      content: '◆';
+      font-size: 0.5rem;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ─── WHY CHOOSE US ─── */
+    #about-preview {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+    }
+
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-img-accent {
+      position: absolute;
+      bottom: -2.5rem;
+      right: -2.5rem;
+      width: 55%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 6px solid var(--black);
+    }
+
+    .about-gold-bar {
+      position: absolute;
+      top: 2rem;
+      left: -1.5rem;
+      width: 3px;
+      height: 60%;
+      background: var(--gold);
+    }
+
+    .about-badge {
+      position: absolute;
+      top: 2rem;
+      right: -1rem;
+      width: 90px;
+      height: 90px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-badge span:first-child {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1;
+    }
+
+    .about-badge span:last-child {
+      font-size: 0.45rem;
+      letter-spacing: 0.15em;
+      color: var(--black);
+      text-transform: uppercase;
+    }
+
+    .perks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .perk {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.2rem;
+      border: 1px solid rgba(201, 162, 39, 0.12);
+      transition: border-color 0.3s;
+    }
+
+    .perk:hover {
+      border-color: var(--gold);
+    }
+
+    .perk-icon {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .perk-title {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .perk-desc {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    /* ─── SERVICES ─── */
+    #services {
+      background: var(--near-black);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5px;
+      margin-top: 4rem;
+      background: rgba(201, 162, 39, 0.1);
+    }
+
+    .service-card {
+      background: var(--near-black);
+      padding: 2.8rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      border: 1px solid var(--glass-border);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, var(--gold-glow), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .service-card:hover {
+      background: var(--dark-grey);
+      transform: translateY(-10px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-num {
+      font-family: var(--serif);
+      font-size: 4rem;
+      color: rgba(212, 175, 55, 0.08);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      transition: color 0.4s;
+    }
+
+    .service-card:hover .service-num {
+      color: rgba(212, 175, 55, 0.15);
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      background: transparent;
+    }
+
+    .service-card:hover .service-icon {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .service-name {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .service-desc {
+      font-size: 0.8rem;
+      line-height: 1.8;
+      color: var(--text-dim);
+    }
+
+    .service-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      transition: gap 0.3s;
+      text-decoration: none;
+    }
+
+    .service-card:hover .service-arrow {
+      gap: 1rem;
+    }
+
+    /* ─── PORTFOLIO ─── */
+    #portfolio {
+      position: relative;
+    }
+
+    .portfolio-filters {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 3rem 0 2rem;
+    }
+
+    .filter-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--grey);
+      padding: 0.5rem 1.3rem;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      cursor: none;
+      transition: all 0.3s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-dim);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 220px;
+      gap: 10px;
+    }
+
+    .port-item {
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+    }
+
+    .port-item:nth-child(1) {
+      grid-column: span 7;
+      grid-row: span 2;
+    }
+
+    .port-item:nth-child(2) {
+      grid-column: span 5;
+      grid-row: span 1;
+    }
+
+    .port-item:nth-child(3) {
+      grid-column: span 5;
+      grid-row: span 1;
+    }
+
+    .port-item:nth-child(4) {
+      grid-column: span 4;
+      grid-row: span 2;
+    }
+
+    .port-item:nth-child(5) {
+      grid-column: span 4;
+      grid-row: span 1;
+    }
+
+    .port-item:nth-child(6) {
+      grid-column: span 4;
+      grid-row: span 1;
+    }
+
+    .port-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+
+    .port-item:hover .port-img {
+      transform: scale(1.08);
+    }
+
+    .port-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.9) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+
+    .port-item:hover .port-overlay {
+      opacity: 1;
+    }
+
+    .port-info {}
+
+    .port-cat {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .port-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials {
+      background: var(--near-black);
+    }
+
+    .testimonials-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    .testi-card {
+      padding: 2.5rem;
+      border: 1px solid rgba(201, 162, 39, 0.12);
+      position: relative;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .testi-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .testi-quote {
+      font-size: 3rem;
+      color: var(--gold);
+      opacity: 0.3;
+      font-family: Georgia, serif;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .testi-text {
+      font-family: var(--serif2);
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.9;
+      color: rgba(200, 200, 200, 0.75);
+      margin-bottom: 1.5rem;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testi-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      object-fit: cover;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--gold);
+      overflow: hidden;
+    }
+
+    .testi-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testi-name {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      color: var(--white);
+    }
+
+    .testi-role {
+      font-size: 0.7rem;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+
+    .testi-stars {
+      color: var(--gold);
+      font-size: 0.7rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /* ─── PROCESS ─── */
+    #process {
+      background: var(--black);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 35px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .step {
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+    }
+
+    .step-num {
+      width: 70px;
+      height: 70px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin: 0 auto 1.5rem;
+      position: relative;
+      background: var(--black);
+      z-index: 1;
+      transition: all 0.3s;
+    }
+
+    .step:hover .step-num {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 0.7rem;
+    }
+
+    .step-desc {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    /* ─── CTA BANNER ─── */
+    .cta-banner {
+      position: relative;
+      padding: 7rem 5%;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)),
+        url('https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1800&q=80') center/cover;
+    }
+
+    .cta-banner .section-title {
+      color: var(--white);
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-banner p {
+      position: relative;
+      z-index: 1;
+      font-size: 0.9rem;
+      color: rgba(200, 200, 200, 0.7);
+      margin: 1rem 0 2.5rem;
+    }
+
+    .cta-banner .btn-gold {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── BLOG ─── */
+    #blog {
+      background: var(--near-black);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 1.5px;
+      margin-top: 4rem;
+      background: rgba(201, 162, 39, 0.08);
+    }
+
+    .blog-card {
+      background: var(--near-black);
+      position: relative;
+      overflow: hidden;
+      cursor: none;
+      transition: background 0.3s;
+    }
+
+    .blog-card:hover {
+      background: var(--dark);
+    }
+
+    .blog-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .blog-card:hover .blog-img {
+      transform: scale(1.04);
+    }
+
+    .blog-body {
+      padding: 1.5rem;
+    }
+
+    .blog-cat {
+      font-size: 0.58rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 0.6rem;
+    }
+
+    .blog-excerpt {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    .blog-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.65rem;
+      color: var(--grey);
+    }
+
+    .blog-card:first-child .blog-title {
+      font-size: 1.5rem;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--black);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 4rem;
+    }
+
+    .contact-info {}
+
+    .contact-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    a.contact-item:hover .contact-item-val {
+      color: var(--gold);
+    }
+
+    a.contact-item:hover .contact-item-icon {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+
+    .contact-item-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-item-val {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--white);
+    }
+
+    /* form */
+    .consult-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .form-control {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top-color: rgba(201, 162, 39, 0.15);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 300;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+    }
+
+    .form-control:focus {
+      border-color: var(--gold);
+    }
+
+    .form-control::placeholder {
+      color: var(--text-dim);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%23C9A227'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+    }
+
+    .btn-submit {
+      background: var(--gold);
+      color: var(--black);
+      border: 1px solid var(--gold);
+      padding: 1rem 2.5rem;
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: none;
+      transition: all 0.35s;
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-submit:hover {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .form-success {
+      display: none;
+      padding: 1rem;
+      border: 1px solid var(--gold);
+      background: var(--gold-dim);
+      color: var(--gold);
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    /* ─── MAP ─── */
+    #map-section {
+      padding: 0;
+    }
+
+    .map-wrap {
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(1) invert(0.9) contrast(0.8);
+    }
+
+    .map-overlay {
+      position: absolute;
+      left: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--black);
+      border: 1px solid rgba(201, 162, 39, 0.3);
+      padding: 2rem;
+      max-width: 280px;
+      z-index: 2;
+    }
+
+    .map-overlay h3 {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .map-overlay p {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    .map-pin {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--near-black);
+      border-top: 1px solid rgba(201, 162, 39, 0.15);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding: 5rem 5% 3rem;
+    }
+
+    .footer-brand {}
+
+    .footer-brand .logo {
+      margin-bottom: 1.2rem;
+      display: inline-flex;
+    }
+
+    .footer-about {
+      font-size: 0.8rem;
+      line-height: 1.9;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--grey);
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 0.85rem;
+      cursor: none;
+    }
+
+    .social-link:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .footer-col h4 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: none;
+    }
+
+    .footer-links a::before {
+      content: '→';
+      color: var(--gold);
+      font-size: 0.7rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      padding: 1.5rem 5%;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer-bottom span {
+      color: var(--gold);
+    }
+
+    /* ─── WHATSAPP FLOAT ─── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.8rem;
+    }
+
+    .whatsapp-bubble {
+      display: none;
+      background: var(--near-black);
+      border: 1px solid rgba(201, 162, 39, 0.3);
+      padding: 1rem 1.2rem;
+      max-width: 220px;
+      animation: popIn 0.3s ease;
+    }
+
+    .whatsapp-bubble.show {
+      display: block;
+    }
+
+    @keyframes popIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8) translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .whatsapp-bubble p {
+      font-size: 0.78rem;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 0.6rem;
+    }
+
+    .whatsapp-bubble strong {
+      color: var(--white);
+    }
+
+    .wa-btn {
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: none;
+      position: relative;
+    }
+
+    .wa-btn::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(37, 211, 102, 0.4);
+      animation: waPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes waPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .wa-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+    }
+
+    /* Call btn */
+    .call-float {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 500;
+    }
+
+    .call-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--black);
+      border: 1px solid var(--gold);
+      padding: 0.7rem 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: none;
+    }
+
+    .call-btn:hover {
+      background: var(--gold);
+    }
+
+    .call-btn i {
+      color: var(--gold);
+      transition: color 0.3s;
+    }
+
+    .call-btn:hover i {
+      color: var(--black);
+    }
+
+    .call-btn span {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      transition: color 0.3s;
+    }
+
+    .call-btn:hover span {
+      color: var(--black);
+    }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--near-black);
+      border: 1px solid rgba(201, 162, 39, 0.3);
+      padding: 3rem;
+      max-width: 560px;
+      width: 100%;
+      position: relative;
+      animation: fadeUp 0.4s ease;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      color: var(--grey);
+      font-size: 1.4rem;
+      cursor: none;
+      transition: color 0.3s;
+    }
+
+    .modal-close:hover {
+      color: var(--white);
+    }
+
+    .modal-tag {
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-sub {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-bottom: 1.8rem;
+    }
+
+    /* ─── ABOUT PAGE ─── */
+    #about {
+      background: var(--black);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .team-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(0.3);
+      transition: filter 0.4s;
+    }
+
+    .team-card:hover .team-img {
+      filter: grayscale(0);
+    }
+
+    .team-info {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+    }
+
+    .team-name {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--white);
+    }
+
+    .team-role {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-top: 3px;
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 5rem;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    .tl-item {
+      position: relative;
+      padding: 0 0 3rem 2.5rem;
+    }
+
+    .tl-dot {
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 11px;
+      height: 11px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      background: var(--black);
+    }
+
+    .tl-year {
+      font-family: var(--serif);
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.4rem;
+    }
+
+    .tl-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .tl-text {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width: 1024px) {
+      #about-preview {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+
+      .about-img-wrap {
+        max-width: 500px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-steps::before {
+        display: none;
+      }
+    }
+
+    @media(max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-stats {
+        display: none;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: minmax(160px, auto);
+        gap: 1.5rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem !important;
+      }
+
+      .services-grid h3 {
+        font-size: 1rem !important;
+      }
+
+      .services-grid p {
+        display: none;
+      }
+
+      /* Hide descriptions on mobile grid for space */
+      .services-grid div[style*="padding:2rem"] {
+        padding: 1rem !important;
+      }
+
+      .port-item:nth-child(n) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .perks-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      section {
+        padding: 4rem 6%;
+      }
+
+      .modal {
+        padding: 2.5rem 1.5rem;
+        width: 95%;
+        margin: 0 auto;
+      }
+
+      .hero-h1 {
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
+      }
+    }
+
+    @media(max-width: 480px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 280px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr !important;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .hero-btns .btn-gold,
+      .hero-btns .btn-outline {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+
+      body {
+        cursor: auto;
+      }
+
+      .cursor,
+      .cursor-follower {
+        display: none;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    /* PAGE SECTIONS */
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+
+    /* Smooth show */
+    .page-section.active {
+      animation: pageIn 0.5s ease;
+    }
+
+    @keyframes pageIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- WhatsApp Float -->
+  <div class="whatsapp-float">
+    <div class="whatsapp-bubble" id="waBubble">
+      <p><strong>Hello! 👋</strong><br>Ready to transform your space? Chat with us on WhatsApp!</p>
+      <a href="https://wa.me/918766212012?text=Hi%20R%26D%20Dream!%20I%20would%20like%20to%20enquire%20about%20interior%20design%20services."
+        class="btn-gold" style="font-size:0.6rem;padding:0.5rem 1rem;" target="_blank">Start Chat</a>
+    </div>
+    <button class="wa-btn" onclick="toggleWaBubble()" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </button>
+  </div>
+
+  <!-- Call Float -->
+  <div class="call-float">
+    <a href="tel:+918766212012" class="call-btn">
+      <i class="fas fa-phone"></i>
+      <span>+91 87662 12012</span>
+    </a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <a href="#" class="logo" onclick="showPage('home')">
+      <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="R&D Dream" class="logo-img">
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('about')">About</a></li>
+      <li><a href="#" onclick="showPage('services')">Services</a></li>
+      <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+      <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+      <li><a href="#" class="nav-cta" onclick="openModal()">Free Consultation</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="toggleMobile()"><i class="fas fa-times"></i></button>
+    <a href="#" onclick="showPage('home');toggleMobile()">Home</a>
+    <a href="#" onclick="showPage('about');toggleMobile()">About</a>
+    <a href="#" onclick="showPage('services');toggleMobile()">Services</a>
+    <a href="#" onclick="showPage('portfolio');toggleMobile()">Portfolio</a>
+    <a href="#" onclick="showPage('blog');toggleMobile()">Blog</a>
+    <a href="#" onclick="openModal();toggleMobile()" style="color:var(--gold)">Free Consultation</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- HOME PAGE -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="page-section active" id="page-home">
+
+    <!-- HERO -->
+    <section id="home" style="padding:0;">
+      <div class="hero-bg"></div>
+      <div class="hero-grain"></div>
+      <div class="hero-line-top"></div>
+      <div class="hero-content">
+        <div class="hero-tag">India's Premier Luxury Studio</div>
+        <h1 class="hero-h1">
+          Architecture For<br>
+          <em>Extraordinary Living</em>
+        </h1>
+        <p class="hero-sub">We transform ambitious visions into breathtaking realities. Award-winning interior solutions
+          crafted for the most discerning clients.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn-gold" onclick="openModal()">
+            <i class="fas fa-calendar-check"></i> Free Consultation
+          </a>
+          <a href="#" class="btn-outline" onclick="showPage('portfolio')">
+            <i class="fas fa-images"></i> View Portfolio
+          </a>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <span class="marquee-item">Luxury Living Rooms</span>
+        <span class="marquee-item">Modular Kitchens</span>
+        <span class="marquee-item">Master Bedrooms</span>
+        <span class="marquee-item">False Ceilings</span>
+        <span class="marquee-item">3D Design Layouts</span>
+        <span class="marquee-item">Office Interiors</span>
+        <span class="marquee-item">Custom Furniture</span>
+        <span class="marquee-item">Luxury Living Rooms</span>
+        <span class="marquee-item">Modular Kitchens</span>
+        <span class="marquee-item">Master Bedrooms</span>
+        <span class="marquee-item">False Ceilings</span>
+        <span class="marquee-item">3D Design Layouts</span>
+        <span class="marquee-item">Office Interiors</span>
+        <span class="marquee-item">Custom Furniture</span>
+      </div>
+    </div>
+
+    <!-- WHY CHOOSE US -->
+    <section id="why" style="background:var(--black);">
+      <div id="about-preview" class="reveal">
+        <div class="about-img-wrap">
+          <img loading="lazy" src="assets/projects/about-main.png" alt="R&D Dream Interior Decor"
+            class="about-img-main" />
+          <img loading="lazy" src="assets/projects/about-accent.png" alt="Interior Detail" class="about-img-accent" />
+          <div class="about-gold-bar"></div>
+          <div class="about-badge">
+            <span>10+</span>
+            <span>Years of Excellence</span>
+          </div>
+        </div>
+        <div>
+          <div class="section-tag">Why Choose R&D Dream</div>
+          <h2 class="section-title">We Don't Just Design.<br><em>We Create Legacies.</em></h2>
+          <p class="section-sub">Every project is a story — of refined taste, attention to detail, and spaces that speak
+            to the soul. We bring your vision to life with unmatched craftsmanship.</p>
+          <div class="perks-grid">
+            <div class="perk">
+              <div class="perk-icon"><i class="fas fa-medal"></i></div>
+              <div>
+                <div class="perk-title">Award-Winning Studio</div>
+                <div class="perk-desc">Recognized for design excellence across India's top interior design platforms.
+                </div>
+              </div>
+            </div>
+            <div class="perk">
+              <div class="perk-icon"><i class="fas fa-gem"></i></div>
+              <div>
+                <div class="perk-title">Premium Materials</div>
+                <div class="perk-desc">We source only the finest materials from certified suppliers worldwide.</div>
+              </div>
+            </div>
+            <div class="perk">
+              <div class="perk-icon"><i class="fas fa-ruler-combined"></i></div>
+              <div>
+                <div class="perk-title">3D Visualization</div>
+                <div class="perk-desc">See your dream space before a single nail is hammered with HD renders.</div>
+              </div>
+            </div>
+            <div class="perk">
+              <div class="perk-icon"><i class="fas fa-shield-alt"></i></div>
+              <div>
+                <div class="perk-title">5-Year Warranty</div>
+                <div class="perk-desc">Complete peace of mind with our comprehensive after-service warranty.</div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="btn-gold" style="margin-top:2rem;display:inline-flex;" onclick="showPage('about')">
+            Our Story <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES PREVIEW -->
+    <section id="services" style="background:var(--near-black);padding:7rem 5%;">
+      <div class="text-center reveal">
+        <div class="section-tag">What We Offer</div>
+        <h2 class="section-title">Premium Interior <em>Services</em></h2>
+        <p class="section-sub">From concept to completion — every service is delivered with the precision and luxury
+          your space deserves.</p>
+      </div>
+      <div class="services-grid reveal">
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-num">01</div>
+          <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
+          <div class="service-name">2D / 3D Design Layouts</div>
+          <p class="service-desc">Photo-realistic 3D renders and detailed 2D floor plans that let you experience your
+            space before it's built.</p>
+          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-num">02</div>
+          <div class="service-icon"><i class="fas fa-utensils"></i></div>
+          <div class="service-name">Modular Kitchen</div>
+          <p class="service-desc">German-engineered modular kitchens that combine form and function for the ultimate
+            culinary experience.</p>
+          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-num">03</div>
+          <div class="service-icon"><i class="fas fa-couch"></i></div>
+          <div class="service-name">Custom Furniture</div>
+          <p class="service-desc">Bespoke furniture crafted to your exact specifications — every piece a work of art in
+            your living space.</p>
+          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-num">04</div>
+          <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="service-name">False Ceiling Design</div>
+          <p class="service-desc">Transform your ceiling into a design statement with gypsum, POP, and designer lighting
+            integrations.</p>
+          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-num">05</div>
+          <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
+          <div class="service-name">Painting Services</div>
+          <p class="service-desc">Premium texture paints, designer wallpapers, and bespoke murals to bring character to
+            every wall.</p>
+          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-num">06</div>
+          <div class="service-icon"><i class="fas fa-bolt"></i></div>
+          <div class="service-name">Electrical & Plumbing</div>
+          <p class="service-desc">Complete electrical and plumbing services by certified professionals — safe, reliable,
+            and code-compliant.</p>
+          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-num">07</div>
+          <div class="service-icon"><i class="fas fa-solar-panel"></i></div>
+          <div class="service-name">Air Conditioning & Solar System</div>
+          <p class="service-desc">Sustainable energy solutions and premium climate control systems integrated seamlessly
+            into your design.</p>
+          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" onclick="showPage('services')">
+          <div class="service-num">08</div>
+          <div class="service-icon"><i class="fas fa-microchip"></i></div>
+          <div class="service-name">Home Automation</div>
+          <p class="service-desc">Smart home solutions for lighting, security, and entertainment, controllable from your
+            fingertips.</p>
+          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
+              class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" style="padding:7rem 5%;">
+      <div class="text-center reveal">
+        <div class="section-tag">Our Process</div>
+        <h2 class="section-title">From Vision to <em>Reality</em></h2>
+      </div>
+      <div class="process-steps reveal">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-title">Consultation</div>
+          <p class="step-desc">We begin by understanding your lifestyle, preferences, and budget through a detailed
+            discovery session.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-title">Design Concept</div>
+          <p class="step-desc">Our designers craft a custom mood board, 2D plans, and immersive 3D renders for your
+            approval.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-title">Execution</div>
+          <p class="step-desc">Skilled artisans bring the design to life with premium materials and meticulous attention
+            to detail.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <div class="step-title">Handover</div>
+          <p class="step-desc">We deliver your transformed space on time, complete with a quality check and 5-year
+            warranty.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO PREVIEW -->
+    <section style="background:var(--near-black);padding:7rem 5%;">
+      <div class="text-center reveal">
+        <div class="section-tag">Our Work</div>
+        <h2 class="section-title">Featured <em>Projects</em></h2>
+      </div>
+      <div class="portfolio-grid reveal" style="margin-top:3rem;">
+        <div class="port-item">
+          <img loading="lazy" src="assets/projects/img1.jpg" alt="Project 1" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item">
+          <img loading="lazy" src="assets/projects/img2.jpg" alt="Project 2" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Elegant Living</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item">
+          <img loading="lazy" src="assets/projects/img3.jpg" alt="Project 3" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">TV Unit Design</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item">
+          <img loading="lazy" src="assets/projects/img4.jpg" alt="Project 4" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Master Bedroom</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item">
+          <img loading="lazy" src="assets/projects/img5.jpg" alt="Project 5" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Luxury Lounge</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item">
+          <img loading="lazy" src="assets/projects/img6.jpg" alt="Project 6" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modular Kitchen</div>
+            </div>
+          </div>
+        </div>
+        <!-- More projects are visible in the full portfolio page -->
+      </div>
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="#" class="btn-outline" onclick="showPage('portfolio')">View Full Portfolio <i
+            class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" style="padding:7rem 5%;">
+      <div class="text-center reveal">
+        <div class="section-tag">Client Stories</div>
+        <h2 class="section-title">What Our <em>Clients Say</em></h2>
+        <p class="section-sub">Their words are our greatest achievement.</p>
+      </div>
+      <div class="testimonials-wrap reveal">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"</div>
+          <p class="testi-text">R&D Dream completely transformed our apartment. The 3D visualization helped us see
+            exactly what we were getting, and the final result exceeded all our expectations. Truly world-class work!
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">A</div>
+            <div>
+              <div class="testi-name">Arjun Sharma</div>
+              <div class="testi-role">Homeowner, Kolkata</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"</div>
+          <p class="testi-text">The modular kitchen they designed is nothing short of breathtaking. Every drawer, every
+            cabinet — perfectly engineered. The team was professional, timely, and genuinely passionate about their
+            craft.</p>
+          <div class="testi-author">
+            <div class="testi-avatar">P</div>
+            <div>
+              <div class="testi-name">Priya Dutta</div>
+              <div class="testi-role">Apartment Owner, Durgapur</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <div class="testi-quote">"</div>
+          <p class="testi-text">Our office now feels like a place where creativity flows naturally. R&D Dream understood
+            our brand's identity and embedded it seamlessly into the space. Outstanding work from an outstanding team.
+          </p>
+          <div class="testi-author">
+            <div class="testi-avatar">R</div>
+            <div>
+              <div class="testi-name">Rahul Mehta</div>
+              <div class="testi-role">Business Owner, Asansol</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <div class="cta-banner reveal">
+      <div class="cta-bg"></div>
+      <div class="section-tag" style="justify-content:center;position:relative;z-index:1;">Limited Slots Available</div>
+      <h2 class="section-title" style="position:relative;z-index:1;">Book Your Free Design<br><em>Consultation
+          Today</em></h2>
+      <p>Transform your space with India's most trusted luxury interior design studio.</p>
+      <a href="#" class="btn-gold" onclick="openModal()">
+        <i class="fas fa-calendar-check"></i> Schedule Consultation
+      </a>
+    </div>
+
+    <!-- MAP SECTION -->
+    <section id="location" style="padding:7rem 5%; background:var(--near-black);">
+      <div class="text-center reveal">
+        <div class="section-tag">Visit Our Studios</div>
+        <h2 class="section-title">Experience Luxury <em>In-Person</em></h2>
+        <p class="section-sub">Drop by our nearest office for a cup of coffee and a design walkthrough.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2.5rem;margin-top:3.5rem;">
+        <!-- Office 1: Head Office -->
+        <div class="reveal" onclick="window.open('https://maps.app.goo.gl/KRsF1ymrGEqRTNyk8', '_blank')"
+          style="background:rgba(255,255,255,0.02);border:1px solid rgba(201,162,39,0.1);border-radius:4px;overflow:hidden;transition:all 0.4s;cursor:pointer;"
+          onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-5px)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.1)';this.style.transform='translateY(0)'">
+          <div class="map-wrap" style="height:250px;pointer-events:none;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.563604323891!2d77.4429!3d28.673!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf19270000001%3A0x1d3a5a4a5a5a5a5a!2sGhaziabad%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              style="filter:grayscale(1) invert(0.9) opacity(0.5);"></iframe>
+          </div>
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div
+                style="width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--black);font-size:1.2rem;">
+                <i class="fas fa-building"></i>
+              </div>
+              <div>
+                <h3 style="font-size:1.1rem;color:var(--white);">Head Office</h3>
+                <p
+                  style="font-size:0.8rem;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;">
+                  Ghaziabad</p>
+              </div>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.6;margin-bottom:1.5rem;">
+              Office Number 1, Tyagi Market Sehani Khurd Ghukna, Raj Nagar Extension, Ghaziabad, Uttar Pradesh 201003
+            </p>
+            <span
+              style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--gold);text-decoration:none;font-weight:600;font-size:0.85rem;">
+              Get Directions <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i>
+            </span>
+          </div>
+        </div>
+
+        <!-- Office 2: Branch Office -->
+        <div class="reveal" onclick="window.open('https://maps.app.goo.gl/WJpN1bWrkqoTBUca6', '_blank')"
+          style="background:rgba(255,255,255,0.02);border:1px solid rgba(201,162,39,0.1);border-radius:4px;overflow:hidden;transition:all 0.4s;cursor:pointer;"
+          onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-5px)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.1)';this.style.transform='translateY(0)'">
+          <div class="map-wrap" style="height:250px;pointer-events:none;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3504.5!2d77.4!3d28.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef!2sGreater%20Noida!5e0!3m2!1sen!2sin!4v1"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              style="filter:grayscale(1) invert(0.9) opacity(0.5);"></iframe>
+          </div>
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+                <div
+                  style="width:40px;height:40px;background:rgba(201,162,39,0.1);border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+                  <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="Location" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+              <div>
+                <h3 style="font-size:1.1rem;color:var(--white);">Branch Office</h3>
+                <p
+                  style="font-size:0.8rem;color:var(--gold);font-weight:600;letter-spacing:1px;text-transform:uppercase;">
+                  Greater Noida</p>
+              </div>
+            </div>
+            <p style="color:var(--text-dim);font-size:0.9rem;line-height:1.6;margin-bottom:1.5rem;">
+              Villa Number 42, Angan Vatika Villas, Vaidpura, Greater Noida, Uttar Pradesh 203207
+            </p>
+            <span
+              style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--gold);text-decoration:none;font-weight:600;font-size:0.85rem;">
+              Get Directions <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="padding:7rem 5%;">
+      <div class="text-center reveal">
+        <div class="section-tag">Get In Touch</div>
+        <h2 class="section-title">Start Your Design <em>Journey</em></h2>
+        <p class="section-sub">Tell us about your project and we'll get back within 24 hours.</p>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-info">
+          <a href="https://maps.app.goo.gl/KRsF1ymrGEqRTNyk8" target="_blank" class="contact-item"
+            style="text-decoration:none;">
+            <div class="contact-item-icon"><i class="fas fa-building"></i></div>
+            <div>
+              <div class="contact-item-label">Head Office</div>
+              <div class="contact-item-val">Office No 1, Tyagi Market, Raj Nagar Extension, Ghaziabad</div>
+            </div>
+          </a>
+          <a href="https://maps.app.goo.gl/WJpN1bWrkqoTBUca6" target="_blank" class="contact-item"
+            style="text-decoration:none;">
+            <div class="contact-item-icon" style="overflow:hidden;">
+              <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="Location" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div>
+              <div class="contact-item-label">Branch Office</div>
+              <div class="contact-item-val">Villa No 42, Angan Vatika Villas, Vaidpura, Greater Noida</div>
+            </div>
+          </a>
+          <a href="tel:+918766212012" class="contact-item" style="text-decoration:none;">
+            <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <div class="contact-item-label">Phone / WhatsApp</div>
+              <div class="contact-item-val">+91 87662 12012</div>
+            </div>
+          </a>
+          <a href="mailto:Info@rddecors.com" class="contact-item" style="text-decoration:none;">
+            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val">Info@rddecors.com</div>
+            </div>
+          </a>
+          <div class="contact-item" style="border-bottom:none;">
+            <div class="contact-item-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <div class="contact-item-label">Working Hours</div>
+              <div class="contact-item-val">Mon – Sat: 10AM – 7PM</div>
+            </div>
+          </div>
+          <div style="margin-top:2rem;">
+            <a href="https://wa.me/918766212012" target="_blank" class="btn-gold" style="margin-right:1rem;">
+              <i class="fab fa-whatsapp"></i> WhatsApp Us
+            </a>
+          </div>
+        </div>
+        <div>
+          <form class="consult-form" onsubmit="submitForm(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-control" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number *</label>
+                <input type="tel" class="form-control" placeholder="+91 00000 00000" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Service Required</label>
+              <select class="form-control form-select">
+                <option value="">Select a service</option>
+                <option>2D / 3D Design Layout</option>
+                <option>Modular Kitchen</option>
+                <option>Custom Furniture</option>
+                <option>False Ceiling Design</option>
+                <option>Painting Services</option>
+                <option>Full Home Interior</option>
+                <option>Office Interior</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Your Message</label>
+              <textarea class="form-control" placeholder="Tell us about your project, budget, timeline..."></textarea>
+            </div>
+            <div class="form-success" id="formSuccess">
+              ✓ Thank you! We'll contact you within 24 hours.
+            </div>
+            <button type="submit" class="btn-submit">
+              Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="#" class="logo" onclick="showPage('home')">
+            <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="R&D Dream" class="logo-img">
+          </a>
+          <p class="footer-about">We transform living spaces into extraordinary experiences. With over 10 years of
+            design excellence and 500+ completed projects, R&D Dream is India's premier luxury interior design studio.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+            <a href="https://wa.me/918766212012" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('about')">About Us</a></li>
+            <li><a href="#" onclick="showPage('services')">Services</a></li>
+            <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+            <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">3D Design Layouts</a></li>
+            <li><a href="#">Modular Kitchen</a></li>
+            <li><a href="#">Custom Furniture</a></li>
+            <li><a href="#">False Ceiling</a></li>
+            <li><a href="#">Painting Services</a></li>
+            <li><a href="#">Electrical Work</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="#location">Ghaziabad & Noida</a></li>
+            <li><a href="tel:+918766212012">+91 87662 12012</a></li>
+            <li><a href="mailto:Info@rddecors.com">Info@rddecors.com</a></li>
+            <li><a href="#">Mon–Sat: 10AM–7PM</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;">
+          <p>© 2026 Vidhi Interiors. All rights reserved.</p>
+          <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
+              target="_blank" style="color:var(--white);text-decoration:none;font-weight:600;">NexvoraWeb</a></p>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- end home page -->
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- ABOUT PAGE -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="page-section" id="page-about">
+    <div style="height:100px;background:var(--black);"></div>
+
+    <!-- Hero -->
+    <section
+      style="background:var(--near-black);padding:6rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+      <div>
+        <div class="section-tag">Our Story</div>
+        <h1 class="section-title">Passion for <em>Perfect Spaces</em></h1>
+        <p style="font-size:0.9rem;line-height:2;color:var(--text-dim);margin-bottom:1.5rem;">
+          Founded in 2014, R&D Dream was born from a simple belief: every person deserves a space that truly reflects
+          who they are. What began as a small studio in Durgapur has grown into one of West Bengal's most celebrated
+          interior design firms.
+        </p>
+        <p style="font-size:0.9rem;line-height:2;color:var(--text-dim);">
+          Our team of 25+ designers, architects, and craftspeople bring together decades of combined experience, a
+          relentless pursuit of perfection, and an innate understanding of what makes a space feel truly alive.
+        </p>
+      </div>
+      <div style="position:relative;">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80"
+          alt="R&D Dream Studio" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" />
+        <div style="position:absolute;bottom:-1.5rem;left:-1.5rem;background:var(--gold);padding:1.5rem 2rem;">
+          <div style="font-family:var(--serif);font-size:1.8rem;color:var(--black);font-weight:700;line-height:1;">500+
+          </div>
+          <div
+            style="font-size:0.6rem;letter-spacing:0.2em;color:rgba(0,0,0,0.7);text-transform:uppercase;margin-top:4px;">
+            Projects Completed</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section style="padding:7rem 5%;background:var(--black);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
+        <div style="padding:3rem;border:1px solid rgba(201,162,39,0.2);">
+          <div style="font-size:2rem;color:var(--gold);margin-bottom:1.2rem;"><i class="fas fa-bullseye"></i></div>
+          <h3 style="font-family:var(--serif);font-size:1.5rem;color:var(--white);margin-bottom:1rem;">Our Mission</h3>
+          <p style="font-size:0.85rem;line-height:2;color:var(--text-dim);">To transform ordinary spaces into
+            extraordinary experiences by combining innovative design, premium craftsmanship, and a deep understanding of
+            each client's unique lifestyle and aspirations.</p>
+        </div>
+        <div style="padding:3rem;border:1px solid rgba(201,162,39,0.2);">
+          <div style="font-size:2rem;color:var(--gold);margin-bottom:1.2rem;"><i class="fas fa-eye"></i></div>
+          <h3 style="font-family:var(--serif);font-size:1.5rem;color:var(--white);margin-bottom:1rem;">Our Vision</h3>
+          <p style="font-size:0.85rem;line-height:2;color:var(--text-dim);">To be the most trusted luxury interior
+            design studio across Eastern India, setting new benchmarks for design excellence, client satisfaction, and
+            sustainable craftsmanship.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section style="padding:7rem 5%;background:var(--near-black);">
+      <div class="text-center">
+        <div class="section-tag">The Minds Behind RD</div>
+        <h2 class="section-title">Meet Our <em>Team</em></h2>
+      </div>
+      <div class="team-grid" style="margin-top:3rem;">
+        <div class="team-card">
+          <img loading="lazy" src="assets/projects/raja.png"
+            alt="Raj Dutta" class="team-img" />
+          <div class="team-info">
+            <div class="team-name">Raja</div>
+            <div class="team-role">Founder & COO</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <img loading="lazy" src="assets/projects/ekta rajput.png"
+            alt="Riya Sen" class="team-img" />
+          <div class="team-info">
+            <div class="team-name">Ekta Rajput</div>
+            <div class="team-role">Co-Founder & CFO</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <img loading="lazy" src="assets/projects/Sameer.jpeg"
+            alt="Arnab Ghosh" class="team-img" />
+          <div class="team-info">
+            <div class="team-name">Sameer</div>
+            <div class="team-role">Regional Sales/Marketing Head</div>
+          </div>
+        </div>
+        <div class="team-card">
+          <img loading="lazy" src="assets/projects/Kajal.png"
+            alt="Neha Banerjee" class="team-img" />
+          <div class="team-info">
+            <div class="team-name">Kajal</div>
+            <div class="team-role">Sales & Customer Relationship Manager</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section style="padding:7rem 5%;background:var(--black);">
+      <div class="section-tag">Our Journey</div>
+      <h2 class="section-title">A Decade of <em>Excellence</em></h2>
+      <div class="timeline" style="margin-top:3rem;max-width:600px;">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2014</div>
+          <div class="tl-title">The Beginning</div>
+          <p class="tl-text">R&D Dream was founded in a small studio in Durgapur with a team of 3 passionate designers
+            and a dream to redefine luxury living.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2016</div>
+          <div class="tl-title">First 100 Projects</div>
+          <p class="tl-text">We celebrated our 100th completed project and expanded our team to 10 specialists, opening
+            a dedicated 3D visualization lab.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2019</div>
+          <div class="tl-title">Award Recognition</div>
+          <p class="tl-text">Received the "Best Interior Design Studio – Eastern India" award, cementing our reputation
+            as a market leader.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2022</div>
+          <div class="tl-title">500+ Projects Milestone</div>
+          <p class="tl-text">A landmark achievement — 500 dreams transformed into reality, spanning homes, offices, and
+            hospitality spaces across Bengal.</p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2025</div>
+          <div class="tl-title">The Future is Now</div>
+          <p class="tl-text">Expanding into smart home integration, sustainable design, and AR-powered room
+            visualization for our valued clients.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-bottom"
+        style="padding:1.5rem 5%;border-top:none;background:var(--near-black);border-top:1px solid rgba(255,255,255,0.04);">
+        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;">
+          <p>© 2026 Vidhi Interiors. All rights reserved.</p>
+          <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
+              target="_blank" style="color:var(--white);text-decoration:none;font-weight:600;">NexvoraWeb</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- SERVICES PAGE -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="page-section" id="page-services">
+    <div style="height:80px;background:var(--black);"></div>
+
+    <!-- Hero -->
+    <div style="position:relative;padding:8rem 5%;background:var(--near-black);text-align:center;overflow:hidden;">
+      <div
+        style="position:absolute;inset:0;background:linear-gradient(rgba(10,10,10,0.8),rgba(10,10,10,0.6)),url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=80') center/cover;">
+      </div>
+      <div style="position:relative;z-index:1;">
+        <div class="section-tag" style="justify-content:center;">What We Offer</div>
+        <h1 class="section-title">Premium Interior <em>Services</em></h1>
+        <p style="font-size:0.9rem;color:rgba(200,200,200,0.7);max-width:500px;margin:0 auto;">Complete interior
+          solutions from concept to completion — delivered with luxury, precision, and care.</p>
+      </div>
+    </div>
+
+    <!-- Services Detail -->
+    <section style="padding:6rem 5%;background:var(--black);">
+      <div class="services-grid"
+        style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;">
+
+        <!-- Service 1 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=700&q=80"
+            alt="3D Design" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i
+                  class="fas fa-drafting-compass"></i></div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">2D / 3D Design Layouts</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Photo-realistic 3D
+              renderings and precise 2D floor plans that let you visualize and approve every detail of your space before
+              construction begins.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Walkthrough Videos &nbsp; ✓
+              VR-Ready Renders &nbsp; ✓ Revisions Included</div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="assets/projects/kitchen-hero.png" alt="Luxury Kitchen Design"
+            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-utensils"></i>
+              </div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Modular Kitchen</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">German-engineered
+              modular kitchens with soft-close hinges, smart storage solutions, and premium countertops. Functional
+              beauty at its finest.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ European Hardware &nbsp; ✓
+              Anti-Termite Wood &nbsp; ✓ 5-Yr Warranty</div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&q=80" alt="Furniture"
+            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-couch"></i>
+              </div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Furniture Customization</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Bespoke furniture
+              crafted by master artisans to your exact dimensions and style preferences — from statement sofas to custom
+              wardrobes.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Custom Dimensions &nbsp; ✓ Premium
+              Fabrics &nbsp; ✓ Handcrafted</div>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=700&q=80"
+            alt="False Ceiling" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-lightbulb"></i>
+              </div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">False Ceiling Design</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Stunning false
+              ceiling designs with integrated LED lighting, cove illumination, and designer fixtures that set the
+              perfect mood for every room.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ LED Integration &nbsp; ✓ Sound
+              Dampening &nbsp; ✓ Fire-Rated</div>
+          </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=700&q=80"
+            alt="Painting" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i
+                  class="fas fa-paint-roller"></i></div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Painting Services</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">From premium Asian
+              Paints textures to imported wallpapers and hand-painted murals — we turn your walls into works of art.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Low-VOC Paints &nbsp; ✓ Texture
+              Work &nbsp; ✓ Wallpapers</div>
+          </div>
+        </div>
+
+        <!-- Service 6 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
+            alt="Electrical" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-bolt"></i></div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Electrical & Plumbing</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Complete electrical
+              rewiring, smart home automation, and plumbing solutions by ISI-certified professionals — safe, reliable,
+              code-compliant.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Smart Switches &nbsp; ✓ Home
+              Automation &nbsp; ✓ Certified Pros</div>
+          </div>
+        </div>
+
+        <!-- Service 7 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&q=80" alt="Solar"
+            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i
+                  class="fas fa-solar-panel"></i></div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">AC & Solar System</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Sustainable energy
+              solutions and premium climate control systems integrated seamlessly into your design for comfort and
+              efficiency.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Solar PV Panels &nbsp; ✓ VRV/VRF
+              Systems &nbsp; ✓ Eco-Friendly</div>
+          </div>
+        </div>
+
+        <!-- Service 8 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=700&q=80"
+            alt="Home Automation" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-microchip"></i>
+              </div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Home Automation</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Smart home solutions
+              for lighting, security, and entertainment, controllable from your fingertips for a truly futuristic living
+              experience.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Smart Lighting &nbsp; ✓ Security
+              Integration &nbsp; ✓ Voice Control</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-banner">
+      <div class="cta-bg"></div>
+      <h2 class="section-title">Ready to Begin <em>Your Project?</em></h2>
+      <p>Get a free no-obligation estimate for your dream interior.</p>
+      <a href="#" class="btn-gold" onclick="openModal()"><i class="fas fa-calendar-check"></i> Book Free
+        Consultation</a>
+    </div>
+
+    <footer>
+      <div class="footer-bottom" style="background:var(--near-black);border-top:1px solid rgba(255,255,255,0.04);">
+        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;padding:1.5rem 0;">
+          <p>© 2026 Vidhi Interiors. All rights reserved.</p>
+          <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
+              target="_blank" style="color:var(--white);text-decoration:none;font-weight:600;">NexvoraWeb</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PORTFOLIO PAGE -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="page-section" id="page-portfolio">
+    <div style="height:80px;background:var(--black);"></div>
+
+    <section style="padding:6rem 5%;background:var(--black);">
+      <div class="text-center">
+        <div class="section-tag">Our Portfolio</div>
+        <h1 class="section-title">500+ Spaces <em>Transformed</em></h1>
+        <p style="font-size:0.9rem;color:var(--text-dim);max-width:500px;margin:0 auto;">Each project is a testament to
+          our craft. Filter by category to explore our work.</p>
+      </div>
+
+      <div class="portfolio-filters" style="justify-content:center;">
+        <button class="filter-btn active" onclick="filterPortfolio('all',this)">All Projects</button>
+        <button class="filter-btn" onclick="filterPortfolio('living',this)">Living Room</button>
+        <button class="filter-btn" onclick="filterPortfolio('bedroom',this)">Bedroom</button>
+        <button class="filter-btn" onclick="filterPortfolio('kitchen',this)">Kitchen</button>
+        <button class="filter-btn" onclick="filterPortfolio('office',this)">Office</button>
+      </div>
+
+      <div class="portfolio-grid" id="portfolioGrid">
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img1.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img2.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Elegant Living</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img3.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">TV Unit Design</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img4.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Master Bedroom</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img5.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Luxury Lounge</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img6.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modular Kitchen</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img7.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Modern Workspace</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img8.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Slat Wall Interior</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img9.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Cozy Bedroom</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img10.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">TV Console</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img11.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Premium Kitchen</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img12.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Home Office</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img13.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Wall Decor</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img14.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Guest Bedroom</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img15.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Dining Area</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img16.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Executive Desk</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img17.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Hall Interior</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img18.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Kids Bedroom</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img19.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Open Kitchen</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img20.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Study Nook</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img21.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Ceiling Design</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img22.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Suite</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img23.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Breakfast Counter</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img24.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Conference Room</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img25.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Modern Lounge</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img26.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Wardrobe Design</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img27.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Gourmet Kitchen</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img28.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Creative Studio</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img29.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Chic Interior</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img30.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Grand Entry</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img31.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 31</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img32.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 32</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img33.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 33</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img34.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 34</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img35.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 35</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img36.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 36</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img37.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 37</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img38.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 38</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img39.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 39</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img40.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 40</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img41.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 41</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img42.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 42</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img43.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 43</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img44.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 44</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="living">
+          <img loading="lazy" src="assets/projects/img45.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Living Room</div>
+              <div class="port-title">Premium Interior 45</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img46.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 46</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img47.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 47</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img48.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 48</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img49.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 49</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img50.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 50</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img51.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 51</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img52.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 52</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img53.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 53</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img54.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 54</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img55.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 55</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img56.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 56</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="bedroom">
+          <img loading="lazy" src="assets/projects/img57.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Bedroom</div>
+              <div class="port-title">Luxury Space 57</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img58.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 58</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img59.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 59</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img60.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 60</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img61.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 61</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img62.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 62</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img63.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 63</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img64.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 64</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img65.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 65</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img66.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 66</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img67.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 67</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img68.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 68</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="kitchen">
+          <img loading="lazy" src="assets/projects/img69.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Kitchen</div>
+              <div class="port-title">Modern Kitchen 69</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img70.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 70</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img71.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 71</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img72.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 72</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img73.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 73</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img74.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 74</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img75.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 75</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img76.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 76</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img77.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 77</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img78.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 78</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img79.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 79</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img80.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 80</div>
+            </div>
+          </div>
+        </div>
+        <div class="port-item" data-cat="office">
+          <img loading="lazy" src="assets/projects/img81.jpg" alt="" class="port-img" />
+          <div class="port-overlay">
+            <div class="port-info">
+              <div class="port-cat">Office</div>
+              <div class="port-title">Workspace 81</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-bottom" style="background:var(--near-black);border-top:1px solid rgba(255,255,255,0.04);">
+        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;padding:1.5rem 0;">
+          <p>© 2026 Vidhi Interiors. All rights reserved.</p>
+          <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
+              target="_blank" style="color:var(--white);text-decoration:none;font-weight:600;">NexvoraWeb</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- BLOG PAGE -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="page-section" id="page-blog">
+    <div style="height:80px;background:var(--black);"></div>
+
+    <section style="padding:6rem 5%;background:var(--black);">
+      <div class="text-center">
+        <div class="section-tag">Design Insights</div>
+        <h1 class="section-title">Interior Design <em>Blog</em></h1>
+        <p style="font-size:0.9rem;color:var(--text-dim);max-width:500px;margin:0 auto;">Expert tips, design trends, and
+          inspiration for your dream home.</p>
+      </div>
+
+      <div class="blog-grid" style="margin-top:3rem;">
+        <div class="blog-card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900&q=80" alt="Blog"
+            class="blog-img" style="aspect-ratio:16/10;" />
+          <div class="blog-body">
+            <div class="blog-cat">Interior Tips</div>
+            <h2 class="blog-title">10 Small House Interior Tips That Make Your Space Feel Grand</h2>
+            <p class="blog-excerpt">Discover how strategic lighting, mirror placement, and clever furniture choices can
+              transform even the coziest apartments into spacious, airy sanctuaries.</p>
+            <div class="blog-meta">
+              <span><i class="fas fa-user" style="color:var(--gold);margin-right:4px;"></i> Raj Dutta</span>
+              <span><i class="fas fa-calendar" style="color:var(--gold);margin-right:4px;"></i> Dec 2024</span>
+              <span><i class="fas fa-clock" style="color:var(--gold);margin-right:4px;"></i> 6 min read</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Blog"
+            class="blog-img" />
+          <div class="blog-body">
+            <div class="blog-cat">Kitchen Designs</div>
+            <h3 class="blog-title">Top Kitchen Design Trends Dominating 2025</h3>
+            <p class="blog-excerpt">From handleless cabinets to integrated appliances — the modular kitchen of 2025 is
+              smarter, sleeker, and more sustainable than ever before.</p>
+            <div class="blog-meta">
+              <span><i class="fas fa-calendar" style="color:var(--gold);margin-right:4px;"></i> Nov 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=600&q=80" alt="Blog"
+            class="blog-img" />
+          <div class="blog-body">
+            <div class="blog-cat">Lighting Ideas</div>
+            <h3 class="blog-title">The Art of Layered Lighting in Luxury Interiors</h3>
+            <p class="blog-excerpt">Ambient, task, and accent lighting — understanding the three layers of light that
+              separate ordinary rooms from extraordinary ones.</p>
+            <div class="blog-meta">
+              <span><i class="fas fa-calendar" style="color:var(--gold);margin-right:4px;"></i> Oct 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- More blogs -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem;">
+        <div class="blog-card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="Blog"
+            class="blog-img" />
+          <div class="blog-body">
+            <div class="blog-cat">Home Decor</div>
+            <h3 class="blog-title">5 False Ceiling Ideas That Will Blow Your Mind</h3>
+            <p class="blog-excerpt">Beyond the basic POP ceiling — explore coffered, tray, stretched, and geometric
+              false ceiling designs that add drama to any room.</p>
+            <div class="blog-meta">
+              <span><i class="fas fa-calendar" style="color:var(--gold);margin-right:4px;"></i> Sep 2024</span>
+              <span><i class="fas fa-clock" style="color:var(--gold);margin-right:4px;"></i> 4 min</span>
+            </div>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1597026381500-4af1d9f50e9f?w=600&q=80" alt="Blog"
+            class="blog-img" />
+          <div class="blog-body">
+            <div class="blog-cat">Space Saving</div>
+            <h3 class="blog-title">Smart Storage Solutions for Indian Apartments</h3>
+            <p class="blog-excerpt">Clever built-in storage, under-stair solutions, and multifunctional furniture ideas
+              designed specifically for compact urban homes.</p>
+            <div class="blog-meta">
+              <span><i class="fas fa-calendar" style="color:var(--gold);margin-right:4px;"></i> Aug 2024</span>
+              <span><i class="fas fa-clock" style="color:var(--gold);margin-right:4px;"></i> 5 min</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-bottom" style="background:var(--near-black);border-top:1px solid rgba(255,255,255,0.04);">
+        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;padding:1.5rem 0;">
+          <p>© 2026 Vidhi Interiors. All rights reserved.</p>
+          <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
+              target="_blank" style="color:var(--white);text-decoration:none;font-weight:600;">NexvoraWeb</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- CONSULTATION MODAL -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="consultModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div class="modal-tag">Free • No Obligation</div>
+      <h2 class="modal-title">Book Your<br><em style="font-style:italic;color:var(--gold);">Consultation</em></h2>
+      <p class="modal-sub">Fill in your details and our design team will reach out within 2 hours.</p>
+
+      <form onsubmit="submitModalForm(event)" style="display:flex;flex-direction:column;gap:1rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="form-group">
+            <label class="form-label">Name *</label>
+            <input type="text" class="form-control" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone *</label>
+            <input type="tel" class="form-control" placeholder="+91 87662 12012" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Project Type</label>
+          <select class="form-control form-select">
+            <option>Home Interior</option>
+            <option>Office Interior</option>
+            <option>Modular Kitchen</option>
+            <option>Single Room</option>
+            <option>Full Renovation</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Preferred Budget</label>
+          <select class="form-control form-select">
+            <option>₹2L – ₹5L</option>
+            <option>₹5L – ₹10L</option>
+            <option>₹10L – ₹20L</option>
+            <option>₹20L+</option>
+          </select>
+        </div>
+        <div id="modalSuccess"
+          style="display:none;padding:0.8rem;border:1px solid var(--gold);background:var(--gold-dim);color:var(--gold);font-size:0.8rem;text-align:center;">
+          ✓ Booked! We'll call you within 2 hours.
+        </div>
+        <button type="submit" class="btn-submit" style="width:100%;justify-content:center;">
+          <i class="fab fa-whatsapp"></i> Book on WhatsApp
+        </button>
+        <p style="text-align:center;font-size:0.65rem;color:var(--text-dim);">Or call us directly: <a
+            href="tel:+918766212012" style="color:var(--gold);">+91 87662 12012</a></p>
+      </form>
+    </div>
+  </div>
+
+
+  <script>
+    // ─── CURSOR ───
+    const cur = document.getElementById('cursor');
+    const curF = document.getElementById('cursorFollower');
+    let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      cur.style.left = mouseX - 5 + 'px';
+      cur.style.top = mouseY - 5 + 'px';
+    });
+    function animateCursor() {
+      followerX += (mouseX - followerX) * 0.1;
+      followerY += (mouseY - followerY) * 0.1;
+      curF.style.left = followerX - 18 + 'px';
+      curF.style.top = followerY - 18 + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // ─── NAVBAR SCROLL ───
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ─── PAGE SWITCHING ───
+    function showPage(page) {
+      document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+      const el = document.getElementById('page-' + page);
+      if (el) { el.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      // Re-trigger reveals on new page
+      setTimeout(initReveal, 100);
+    }
+
+    // ─── REVEAL ON SCROLL ───
+    function initReveal() {
+      const reveals = document.querySelectorAll('.reveal:not(.visible)');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
+      reveals.forEach(el => observer.observe(el));
+    }
+    initReveal();
+
+    // ─── MOBILE MENU ───
+    function toggleMobile() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // ─── MODAL ───
+    function openModal() {
+      document.getElementById('consultModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('consultModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('consultModal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+
+    // ─── WHATSAPP BUBBLE ───
+    function toggleWaBubble() {
+      document.getElementById('waBubble').classList.toggle('show');
+    }
+    // Auto show after 5s
+    setTimeout(() => {
+      document.getElementById('waBubble').classList.add('show');
+      setTimeout(() => document.getElementById('waBubble').classList.remove('show'), 6000);
+    }, 5000);
+
+    // ─── FORMS ───
+    function submitForm(e) {
+      e.preventDefault();
+      const s = document.getElementById('formSuccess');
+      s.style.display = 'block';
+      setTimeout(() => s.style.display = 'none', 5000);
+      e.target.reset();
+    }
+    function submitModalForm(e) {
+      e.preventDefault();
+      const s = document.getElementById('modalSuccess');
+      s.style.display = 'block';
+      setTimeout(() => { s.style.display = 'none'; closeModal(); }, 3000);
+      // Open WhatsApp
+      const name = e.target.querySelector('input[type="text"]').value;
+      window.open('https://wa.me/918766212012?text=Hi%20R%26D%20Dream!%20I%27d%20like%20to%20book%20a%20free%20consultation.%20My%20name%20is%20' + encodeURIComponent(name), '_blank');
+    }
+
+    // ─── PORTFOLIO FILTER ───
+    function filterPortfolio(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const items = document.querySelectorAll('#portfolioGrid .port-item');
+      items.forEach(item => {
+        if (cat === 'all' || item.dataset.cat === cat) {
+          item.style.display = '';
+          item.style.opacity = '0';
+          setTimeout(() => item.style.opacity = '1', 50);
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
