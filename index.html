@@ -192,6 +192,80 @@
       width: 100%;
     }
 
+    /* ─── DROPDOWN STYLES ─── */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(15px);
+      background: rgba(12, 12, 12, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      list-style: none;
+      padding: 1rem 0;
+      min-width: 180px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1001;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-menu li {
+      width: 100%;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 0.8rem 1.5rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu a::after {
+      display: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--gold-glow);
+      color: var(--gold);
+      padding-left: 1.8rem;
+    }
+
+    .nav-links li a i {
+      font-size: 0.6rem;
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .dropdown:hover > a i {
+      transform: rotate(180deg);
+    }
+
     .nav-cta {
       background: transparent;
       border: 1px solid var(--gold);
@@ -1779,21 +1853,37 @@
     }
 
     .team-info {
-      padding: 1.2rem 0;
+      padding: 1.5rem 0;
       border-bottom: 1px solid rgba(201, 162, 39, 0.2);
+      text-align: left;
     }
 
     .team-name {
       font-family: var(--serif);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: var(--white);
+      margin-bottom: 0.4rem;
     }
 
     .team-role {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       color: var(--gold);
-      margin-top: 3px;
+      font-weight: 500;
+    }
+
+    .team-bio {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-top: 1.2rem;
+      font-weight: 300;
+      text-align: justify;
+    }
+
+    .team-bio p {
+      margin-bottom: 0.8rem;
     }
 
     .timeline {
@@ -2063,7 +2153,14 @@
       <li><a href="#" onclick="showPage('home')">Home</a></li>
       <li><a href="#" onclick="showPage('about')">About</a></li>
       <li><a href="#" onclick="showPage('services')">Services</a></li>
-      <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+      <li class="dropdown">
+        <a href="#" onclick="showPage('portfolio')">Portfolio <i class="fas fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('residential', document.querySelector('.filter-btn[data-cat=residential]')), 100)">Residential</a></li>
+          <li><a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('commercial', document.querySelector('.filter-btn[data-cat=commercial]')), 100)">Commercial</a></li>
+          <li><a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('industrial', document.querySelector('.filter-btn[data-cat=industrial]')), 100)">Industrial</a></li>
+        </ul>
+      </li>
       <li><a href="#" onclick="showPage('blog')">Blog</a></li>
       <li><a href="#" class="nav-cta" onclick="openModal()">Free Consultation</a></li>
     </ul>
@@ -2080,6 +2177,11 @@
     <a href="#" onclick="showPage('about');toggleMobile()">About</a>
     <a href="#" onclick="showPage('services');toggleMobile()">Services</a>
     <a href="#" onclick="showPage('portfolio');toggleMobile()">Portfolio</a>
+    <div style="display:flex;flex-direction:column;gap:1rem;padding-left:1.5rem;margin-top:-1rem;">
+      <a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('residential', document.querySelector('.filter-btn[data-cat=residential]')), 100);toggleMobile()" style="font-size:1.2rem;opacity:0.8;">• Residential</a>
+      <a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('commercial', document.querySelector('.filter-btn[data-cat=commercial]')), 100);toggleMobile()" style="font-size:1.2rem;opacity:0.8;">• Commercial</a>
+      <a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('industrial', document.querySelector('.filter-btn[data-cat=industrial]')), 100);toggleMobile()" style="font-size:1.2rem;opacity:0.8;">• Industrial</a>
+    </div>
     <a href="#" onclick="showPage('blog');toggleMobile()">Blog</a>
     <a href="#" onclick="openModal();toggleMobile()" style="color:var(--gold)">Free Consultation</a>
   </div>
@@ -2155,11 +2257,22 @@
     <section id="why" style="background:var(--black);">
       <div id="about-preview" class="reveal">
         <div class="about-img-wrap">
-          <img loading="lazy" src="assets/projects/about-main.png" alt="R&D Dream Interior Decor"
-            class="about-img-main" />
-          <img loading="lazy" src="assets/projects/about-accent.png" alt="Interior Detail" class="about-img-accent" />
+          <div style="position: relative; margin-bottom: 3rem;">
+            <img loading="lazy" src="assets/projects/about-main.png" alt="R&D Dream Interior Decor"
+              class="about-img-main" />
+            <div style="margin-top: 1rem; font-family: var(--serif); font-size: 1rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;">
+              R&D Dream Interior
+            </div>
+            
+            <div style="position: absolute; bottom: -4rem; right: -2.5rem; width: 55%; z-index: 2;">
+              <img loading="lazy" src="assets/projects/about-accent.png" alt="Interior Detail" class="about-img-accent" style="position: static; width: 100%;" />
+              <div style="margin-top: 0.5rem; font-family: var(--sans); font-size: 0.6rem; color: var(--white); opacity: 0.7; letter-spacing: 0.2em; text-transform: uppercase; text-align: right;">
+                Signature Excellence
+              </div>
+            </div>
+          </div>
           <div class="about-gold-bar"></div>
-          <div class="about-badge">
+          <div class="about-badge" style="z-index: 3;">
             <span>10+</span>
             <span>Years of Excellence</span>
           </div>
@@ -2721,25 +2834,6 @@
       </div>
     </section>
 
-    <!-- Mission & Vision -->
-    <section style="padding:7rem 5%;background:var(--black);">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;">
-        <div style="padding:3rem;border:1px solid rgba(201,162,39,0.2);">
-          <div style="font-size:2rem;color:var(--gold);margin-bottom:1.2rem;"><i class="fas fa-bullseye"></i></div>
-          <h3 style="font-family:var(--serif);font-size:1.5rem;color:var(--white);margin-bottom:1rem;">Our Mission</h3>
-          <p style="font-size:0.85rem;line-height:2;color:var(--text-dim);">To transform ordinary spaces into
-            extraordinary experiences by combining innovative design, premium craftsmanship, and a deep understanding of
-            each client's unique lifestyle and aspirations.</p>
-        </div>
-        <div style="padding:3rem;border:1px solid rgba(201,162,39,0.2);">
-          <div style="font-size:2rem;color:var(--gold);margin-bottom:1.2rem;"><i class="fas fa-eye"></i></div>
-          <h3 style="font-family:var(--serif);font-size:1.5rem;color:var(--white);margin-bottom:1rem;">Our Vision</h3>
-          <p style="font-size:0.85rem;line-height:2;color:var(--text-dim);">To be the most trusted luxury interior
-            design studio across Eastern India, setting new benchmarks for design excellence, client satisfaction, and
-            sustainable craftsmanship.</p>
-        </div>
-      </div>
-    </section>
 
     <!-- Team -->
     <section style="padding:7rem 5%;background:var(--near-black);">
@@ -2753,6 +2847,11 @@
           <div class="team-info">
             <div class="team-name">Mr Raja</div>
             <div class="team-role">Founder & COO</div>
+            <div class="team-bio">
+              <p>Our Founder and COO Mr Raja brings over 15 years of experience in the interior design and execution industry. With a strong foundation in both creative design and project management, they have led the successful delivery of a wide range of residential and commercial projects.</p>
+              <p>Known for a hands-on approach, they oversee every stage of the process—from concept development to final execution—ensuring quality, efficiency, and attention to detail. Their leadership combines strategic thinking with practical expertise, enabling the firm to consistently meet timelines, optimize resources, and exceed client expectations.</p>
+              <p>Driven by a passion for creating functional and inspiring spaces, they continue to shape the firm’s vision and uphold its commitment to excellence.</p>
+            </div>
           </div>
         </div>
         <div class="team-card">
@@ -2760,6 +2859,11 @@
           <div class="team-info">
             <div class="team-name">Ekta Rajput</div>
             <div class="team-role">Co-Founder & CFO</div>
+            <div class="team-bio">
+              <p>She brings strong financial expertise and strategic insight to the firm, ensuring a solid foundation for sustainable growth. With a keen eye for budgeting, cost optimization, and financial planning, they play a vital role in maintaining efficiency across all projects.</p>
+              <p>She works closely with the leadership and execution teams to align financial discipline with creative ambitions, ensuring every project is delivered within budget without compromising on quality. Their structured approach and attention to detail support smooth operations, transparent processes, and long-term value for clients.</p>
+              <p>Committed to excellence and accountability, they help drive the firm’s vision by balancing innovation with financial prudence.</p>
+            </div>
           </div>
         </div>
         <div class="team-card">
@@ -2767,6 +2871,11 @@
           <div class="team-info">
             <div class="team-name">Sameer</div>
             <div class="team-role">Regional Sales/Marketing Head</div>
+            <div class="team-bio">
+              <p>Our Regional Sales and Marketing Head leads business growth with a strong focus on client relationships, market expansion, and brand positioning. With deep insight into market trends and customer needs, they drive strategies that enhance visibility, generate opportunities, and build lasting partnerships.</p>
+              <p>They play a key role in connecting clients with our design and execution teams, ensuring a smooth transition from inquiry to project delivery. Their proactive approach, combined with strong communication and negotiation skills, helps the firm consistently expand its presence and deliver value-driven solutions.</p>
+              <p>Dedicated to driving growth and strengthening the brand, they contribute significantly to the firm’s continued success across regions.</p>
+            </div>
           </div>
         </div>
         <div class="team-card">
@@ -2774,6 +2883,11 @@
           <div class="team-info">
             <div class="team-name">Kajal</div>
             <div class="team-role">Sales & CRM Manager</div>
+            <div class="team-bio">
+              <p>Our Sales and Customer Relationship Manager plays a vital role in building strong client connections and ensuring a seamless customer experience. From the first interaction to project completion, they act as a trusted point of contact, understanding client needs and guiding them through every stage of the process.</p>
+              <p>With a focus on clear communication and personalized service, they help translate client requirements into actionable solutions, working closely with design and execution teams. Their proactive approach ensures timely updates, quick resolution of queries, and a smooth project journey.</p>
+              <p>Committed to client satisfaction and long-term relationships, they contribute to creating a positive and reliable experience for every client we serve.</p>
+            </div>
           </div>
         </div>
         <div class="team-card">
@@ -2781,135 +2895,18 @@
             <i class="fas fa-tools" style="font-size:3rem;color:var(--gold);opacity:0.5;"></i>
           </div>
           <div class="team-info">
-            <div class="team-name">Consultants</div>
-            <div class="team-role">MEP & Automation</div>
+            <div class="team-name">MEP and Automation Consultants</div>
+            <div class="team-role">Technical Strategy & Smart Integration</div>
+            <div class="team-bio">
+              <p>Our MEP and Automation Consultant brings specialized expertise in mechanical, electrical, plumbing, and smart system integration to ensure every space functions efficiently and intelligently. With a strong technical background, they design and implement systems that enhance performance, sustainability, and user comfort.</p>
+              <p>Working closely with the design and execution teams, they ensure seamless coordination of all services, optimizing layouts and preventing on-site challenges. Their approach combines innovation with practicality, integrating modern automation solutions that elevate convenience, safety, and energy efficiency.</p>
+              <p>Committed to precision and reliability, they play a key role in delivering well-engineered, future-ready Home/spaces.</p>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <!-- Detailed Briefing -->
-      <div style="margin-top:7rem; max-width:900px; margin-left:auto; margin-right:auto; border-top:1px solid rgba(201,162,39,0.1); padding-top:5rem;">
-        <div class="section-tag">Leadership & Expertise</div>
-        <h2 class="section-title" style="font-size:2rem; margin-bottom:4rem;">TEAM <em>BRIEFING</em></h2>
-        
-        <div class="briefing-container" style="display:grid; gap:4rem;">
-          
-          <div class="briefing-item">
-            <h3 style="font-family:var(--serif); font-size:1.5rem; color:var(--white); margin-bottom:0.5rem;">Mr Raja</h3>
-            <div style="color:var(--gold); font-size:0.8rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:1.5rem; font-weight:600;">Founder and COO</div>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem; margin-bottom:1.2rem;">
-              Our Founder and COO Mr Raja brings over 15 years of experience in the interior design and execution industry. With a strong foundation in both creative design and project management, they have led the successful delivery of a wide range of residential and commercial projects.
-            </p>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem; margin-bottom:1.2rem;">
-              Known for a hands-on approach, they oversee every stage of the process—from concept development to final execution—ensuring quality, efficiency, and attention to detail. Their leadership combines strategic thinking with practical expertise, enabling the firm to consistently meet timelines, optimize resources, and exceed client expectations.
-            </p>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem;">
-              Driven by a passion for creating functional and inspiring spaces, they continue to shape the firm’s vision and uphold its commitment to excellence.
-            </p>
-          </div>
-
-          <div class="briefing-item">
-            <h3 style="font-family:var(--serif); font-size:1.5rem; color:var(--white); margin-bottom:0.5rem;">EKTA RAJPUT</h3>
-            <div style="color:var(--gold); font-size:0.8rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:1.5rem; font-weight:600;">Co-Founder and CFO</div>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem; margin-bottom:1.2rem;">
-              She brings strong financial expertise and strategic insight to the firm, ensuring a solid foundation for sustainable growth. With a keen eye for budgeting, cost optimization, and financial planning, they play a vital role in maintaining efficiency across all projects.
-            </p>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem; margin-bottom:1.2rem;">
-              She works closely with the leadership and execution teams to align financial discipline with creative ambitions, ensuring every project is delivered within budget without compromising on quality. Their structured approach and attention to detail support smooth operations, transparent processes, and long-term value for clients.
-            </p>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem;">
-              Committed to excellence and accountability, they help drive the firm’s vision by balancing innovation with financial prudence.
-            </p>
-          </div>
-
-          <div class="briefing-item">
-            <h3 style="font-family:var(--serif); font-size:1.5rem; color:var(--white); margin-bottom:0.5rem;">Sameer</h3>
-            <div style="color:var(--gold); font-size:0.8rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:1.5rem; font-weight:600;">Regional Sales/Marketing Head</div>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem; margin-bottom:1.2rem;">
-              Our Regional Sales and Marketing Head leads business growth with a strong focus on client relationships, market expansion, and brand positioning. With deep insight into market trends and customer needs, they drive strategies that enhance visibility, generate opportunities, and build lasting partnerships.
-            </p>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem; margin-bottom:1.2rem;">
-              They play a key role in connecting clients with our design and execution teams, ensuring a smooth transition from inquiry to project delivery. Their proactive approach, combined with strong communication and negotiation skills, helps the firm consistently expand its presence and deliver value-driven solutions.
-            </p>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem;">
-              Dedicated to driving growth and strengthening the brand, they contribute significantly to the firm’s continued success across regions.
-            </p>
-          </div>
-
-          <div class="briefing-item">
-            <h3 style="font-family:var(--serif); font-size:1.5rem; color:var(--white); margin-bottom:0.5rem;">Kajal</h3>
-            <div style="color:var(--gold); font-size:0.8rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:1.5rem; font-weight:600;">Sales and Customer Relationship Manager</div>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem; margin-bottom:1.2rem;">
-              Our Sales and Customer Relationship Manager plays a vital role in building strong client connections and ensuring a seamless customer experience. From the first interaction to project completion, they act as a trusted point of contact, understanding client needs and guiding them through every stage of the process.
-            </p>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem; margin-bottom:1.2rem;">
-              With a focus on clear communication and personalized service, they help translate client requirements into actionable solutions, working closely with design and execution teams. Their proactive approach ensures timely updates, quick resolution of queries, and a smooth project journey.
-            </p>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem;">
-              Committed to client satisfaction and long-term relationships, they contribute to creating a positive and reliable experience for every client we serve.
-            </p>
-          </div>
-
-          <div class="briefing-item">
-            <h3 style="font-family:var(--serif); font-size:1.5rem; color:var(--white); margin-bottom:0.5rem;">MEP and Automation Consultants</h3>
-            <div style="color:var(--gold); font-size:0.8rem; letter-spacing:2px; text-transform:uppercase; margin-bottom:1.5rem; font-weight:600;">Technical Strategy & Smart Integration</div>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem; margin-bottom:1.2rem;">
-              Our MEP and Automation Consultant brings specialized expertise in mechanical, electrical, plumbing, and smart system integration to ensure every space functions efficiently and intelligently. With a strong technical background, they design and implement systems that enhance performance, sustainability, and user comfort.
-            </p>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem; margin-bottom:1.2rem;">
-              Working closely with the design and execution teams, they ensure seamless coordination of all services, optimizing layouts and preventing on-site challenges. Their approach combines innovation with practicality, integrating modern automation solutions that elevate convenience, safety, and energy efficiency.
-            </p>
-            <p style="color:var(--text-dim); line-height:1.8; font-size:0.95rem;">
-              Committed to precision and reliability, they play a key role in delivering well-engineered, future-ready Home/spaces.
-            </p>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- Timeline -->
-    <section style="padding:7rem 5%;background:var(--black);">
-      <div class="section-tag">Our Journey</div>
-      <h2 class="section-title">A Decade of <em>Excellence</em></h2>
-      <div class="timeline" style="margin-top:3rem;max-width:600px;">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">2014</div>
-          <div class="tl-title">The Beginning</div>
-          <p class="tl-text">R&D Dream was founded in a small studio in Durgapur with a team of 3 passionate designers
-            and a dream to redefine luxury living.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">2016</div>
-          <div class="tl-title">First 100 Projects</div>
-          <p class="tl-text">We celebrated our 100th completed project and expanded our team to 10 specialists, opening
-            a dedicated 3D visualization lab.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">2019</div>
-          <div class="tl-title">Award Recognition</div>
-          <p class="tl-text">Received the "Best Interior Design Studio – Eastern India" award, cementing our reputation
-            as a market leader.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">2022</div>
-          <div class="tl-title">500+ Projects Milestone</div>
-          <p class="tl-text">A landmark achievement — 500 dreams transformed into reality, spanning homes, offices, and
-            hospitality spaces across Bengal.</p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-year">2025</div>
-          <div class="tl-title">The Future is Now</div>
-          <p class="tl-text">Expanding into smart home integration, sustainable design, and AR-powered room
-            visualization for our valued clients.</p>
-        </div>
-      </div>
-    </section>
 
     <!-- Footer -->
     <footer>
@@ -3147,14 +3144,17 @@
 
       <div class="portfolio-filters" style="justify-content:center;">
         <button class="filter-btn active" onclick="filterPortfolio('all',this)">All Projects</button>
-        <button class="filter-btn" onclick="filterPortfolio('living',this)">Living Room</button>
-        <button class="filter-btn" onclick="filterPortfolio('bedroom',this)">Bedroom</button>
-        <button class="filter-btn" onclick="filterPortfolio('kitchen',this)">Kitchen</button>
-        <button class="filter-btn" onclick="filterPortfolio('office',this)">Office</button>
+        <button class="filter-btn" data-cat="residential" onclick="filterPortfolio('residential',this)">Residential</button>
+        <button class="filter-btn" data-cat="commercial" onclick="filterPortfolio('commercial',this)">Commercial</button>
+        <button class="filter-btn" data-cat="industrial" onclick="filterPortfolio('industrial',this)">Industrial</button>
+        <button class="filter-btn" data-cat="living" onclick="filterPortfolio('living',this)">Living Room</button>
+        <button class="filter-btn" data-cat="bedroom" onclick="filterPortfolio('bedroom',this)">Bedroom</button>
+        <button class="filter-btn" data-cat="kitchen" onclick="filterPortfolio('kitchen',this)">Kitchen</button>
+        <button class="filter-btn" data-cat="office" onclick="filterPortfolio('office',this)">Office</button>
       </div>
 
       <div class="portfolio-grid" id="portfolioGrid">
-        <div class="port-item" data-cat="kitchen">
+        <div class="port-item" data-cat="kitchen residential">
           <img loading="lazy" src="assets/projects/img1.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3163,7 +3163,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img2.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3172,7 +3172,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img3.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3181,7 +3181,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="bedroom">
+        <div class="port-item" data-cat="bedroom residential">
           <img loading="lazy" src="assets/projects/img4.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3190,7 +3190,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img5.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3199,7 +3199,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="kitchen">
+        <div class="port-item" data-cat="kitchen residential">
           <img loading="lazy" src="assets/projects/img6.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3208,7 +3208,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="office">
+        <div class="port-item" data-cat="office commercial">
           <img loading="lazy" src="assets/projects/img7.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3217,7 +3217,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img8.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3226,7 +3226,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="bedroom">
+        <div class="port-item" data-cat="bedroom residential">
           <img loading="lazy" src="assets/projects/img9.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3235,7 +3235,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img10.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3244,7 +3244,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="kitchen">
+        <div class="port-item" data-cat="kitchen residential">
           <img loading="lazy" src="assets/projects/img11.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3253,7 +3253,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="office">
+        <div class="port-item" data-cat="office commercial">
           <img loading="lazy" src="assets/projects/img12.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3262,7 +3262,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img13.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3271,7 +3271,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="bedroom">
+        <div class="port-item" data-cat="bedroom residential">
           <img loading="lazy" src="assets/projects/img14.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3280,7 +3280,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="kitchen">
+        <div class="port-item" data-cat="kitchen residential">
           <img loading="lazy" src="assets/projects/img15.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3289,7 +3289,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="office">
+        <div class="port-item" data-cat="office commercial">
           <img loading="lazy" src="assets/projects/img16.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3298,7 +3298,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img17.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3307,7 +3307,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="bedroom">
+        <div class="port-item" data-cat="bedroom residential">
           <img loading="lazy" src="assets/projects/img18.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3316,7 +3316,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="kitchen">
+        <div class="port-item" data-cat="kitchen residential">
           <img loading="lazy" src="assets/projects/img19.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3325,7 +3325,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="office">
+        <div class="port-item" data-cat="office commercial">
           <img loading="lazy" src="assets/projects/img20.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3334,7 +3334,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img21.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3343,7 +3343,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="bedroom">
+        <div class="port-item" data-cat="bedroom residential">
           <img loading="lazy" src="assets/projects/img22.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3352,7 +3352,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="kitchen">
+        <div class="port-item" data-cat="kitchen residential">
           <img loading="lazy" src="assets/projects/img23.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3361,7 +3361,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="office">
+        <div class="port-item" data-cat="office commercial">
           <img loading="lazy" src="assets/projects/img24.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3370,7 +3370,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img25.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3379,7 +3379,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="bedroom">
+        <div class="port-item" data-cat="bedroom residential">
           <img loading="lazy" src="assets/projects/img26.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3388,7 +3388,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="kitchen">
+        <div class="port-item" data-cat="kitchen residential">
           <img loading="lazy" src="assets/projects/img27.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3397,16 +3397,16 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="office">
+        <div class="port-item" data-cat="office industrial">
           <img loading="lazy" src="assets/projects/img28.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
-              <div class="port-cat">Office</div>
-              <div class="port-title">Creative Studio</div>
+              <div class="port-cat">Industrial</div>
+              <div class="port-title">Industrial Workspace</div>
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img29.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3415,7 +3415,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img30.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3424,7 +3424,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img31.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3433,7 +3433,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img32.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3442,7 +3442,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img33.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3451,7 +3451,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img34.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3460,7 +3460,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img35.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3469,7 +3469,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img36.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3478,7 +3478,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img37.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3487,7 +3487,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img38.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3496,7 +3496,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img39.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3505,7 +3505,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img40.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3514,7 +3514,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img41.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3523,7 +3523,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img42.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3532,7 +3532,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img43.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3541,7 +3541,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img44.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -3550,7 +3550,7 @@
             </div>
           </div>
         </div>
-        <div class="port-item" data-cat="living">
+        <div class="port-item" data-cat="living residential">
           <img loading="lazy" src="assets/projects/img45.jpg" alt="" class="port-img" />
           <div class="port-overlay">
             <div class="port-info">
@@ -4149,10 +4149,11 @@
     // ─── PORTFOLIO FILTER ───
     function filterPortfolio(cat, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      if (btn) btn.classList.add('active');
       const items = document.querySelectorAll('#portfolioGrid .port-item');
       items.forEach(item => {
-        if (cat === 'all' || item.dataset.cat === cat) {
+        const itemCats = item.dataset.cat.toLowerCase().split(' ');
+        if (cat === 'all' || itemCats.includes(cat.toLowerCase())) {
           item.style.display = '';
           item.style.opacity = '0';
           setTimeout(() => item.style.opacity = '1', 50);
