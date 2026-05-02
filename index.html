@@ -13,9 +13,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root {
-      --gold: #d4af37; /* More refined brushed gold */
+      --gold: #d4af37;
+      /* More refined brushed gold */
       --gold-glow: rgba(212, 175, 55, 0.15);
-      --black: #050505; /* Deeper black */
+      --black: #050505;
+      /* Deeper black */
       --near-black: #0c0c0c;
       --dark-grey: #1a1a1a;
       --white: #ffffff;
@@ -44,7 +46,7 @@
 
     body {
       background-color: var(--black);
-      background-image: 
+      background-image:
         radial-gradient(circle at 2px 2px, rgba(212, 175, 55, 0.05) 1px, transparent 0);
       background-size: 40px 40px;
       color: var(--white);
@@ -212,7 +214,7 @@
       visibility: hidden;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       z-index: 1001;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     }
 
     .dropdown-menu::before {
@@ -262,7 +264,7 @@
       transition: transform 0.3s ease;
     }
 
-    .dropdown:hover > a i {
+    .dropdown:hover>a i {
       transform: rotate(180deg);
     }
 
@@ -312,7 +314,7 @@
       position: fixed;
       inset: 0;
       background: var(--near-black);
-      z-index: 999;
+      z-index: 2000;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -361,15 +363,20 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to bottom, rgba(5,5,5,0.4), var(--black)),
+        linear-gradient(to bottom, rgba(5, 5, 5, 0.4), var(--black)),
         url('assets/projects/living-velvet.png') center/cover no-repeat;
       transform: scale(1.05);
-      animation: heroZoom 20s ease-out infinite alternate;
+      animation: heroZoom 20s ease-out 1 forwards;
     }
 
     @keyframes heroZoom {
-      from { transform: scale(1); }
-      to   { transform: scale(1.15); }
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.15);
+      }
     }
 
     .hero-grain {
@@ -859,7 +866,7 @@
       background: var(--dark-grey);
       transform: translateY(-10px);
       border-color: var(--gold);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
     .service-card:hover::before {
@@ -1081,7 +1088,7 @@
     }
 
     .testi-text {
-      font-family: var(--serif2);
+      font-family: var(--serif);
       font-size: 1rem;
       font-style: italic;
       line-height: 1.9;
@@ -2114,6 +2121,18 @@
         opacity: 1;
       }
     }
+
+    /* ─────────────────────────────────────────────
+   ⚠️ Prevent hidden menu from blocking clicks
+───────────────────────────────────────────── */
+
+    #mobileMenu {
+      pointer-events: none;
+    }
+
+    #mobileMenu.open {
+      pointer-events: auto;
+    }
   </style>
 </head>
 
@@ -2156,31 +2175,43 @@
       <li class="dropdown">
         <a href="#" onclick="showPage('portfolio')">Portfolio <i class="fas fa-chevron-down"></i></a>
         <ul class="dropdown-menu">
-          <li><a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('residential', document.querySelector('.filter-btn[data-cat=residential]')), 100)">Residential</a></li>
-          <li><a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('commercial', document.querySelector('.filter-btn[data-cat=commercial]')), 100)">Commercial</a></li>
-          <li><a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('industrial', document.querySelector('.filter-btn[data-cat=industrial]')), 100)">Industrial</a></li>
+          <li><a href="#"
+              onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('residential', document.querySelector('.filter-btn[data-cat=residential]')), 100)">Residential</a>
+          </li>
+          <li><a href="#"
+              onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('commercial', document.querySelector('.filter-btn[data-cat=commercial]')), 100)">Commercial</a>
+          </li>
+          <li><a href="#"
+              onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('industrial', document.querySelector('.filter-btn[data-cat=industrial]')), 100)">Industrial</a>
+          </li>
         </ul>
       </li>
       <li><a href="#" onclick="showPage('blog')">Blog</a></li>
       <li><a href="#" class="nav-cta" onclick="openModal()">Free Consultation</a></li>
     </ul>
 
-    <button class="hamburger" id="hamburger" onclick="toggleMobile()">
+    <button class="hamburger" id="hamburger" onclick="openMobile()">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-close" onclick="toggleMobile()"><i class="fas fa-times"></i></button>
-    <a href="#" onclick="showPage('home');toggleMobile()">Home</a>
+    <button class="mobile-close" onclick="closeMobile()"><i class="fas fa-times"></i></button>
+    <a href="#" onclick="showPage('home');closeMobile()">Home</a>
     <a href="#" onclick="showPage('about');toggleMobile()">About</a>
     <a href="#" onclick="showPage('services');toggleMobile()">Services</a>
     <a href="#" onclick="showPage('portfolio');toggleMobile()">Portfolio</a>
     <div style="display:flex;flex-direction:column;gap:1rem;padding-left:1.5rem;margin-top:-1rem;">
-      <a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('residential', document.querySelector('.filter-btn[data-cat=residential]')), 100);toggleMobile()" style="font-size:1.2rem;opacity:0.8;">• Residential</a>
-      <a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('commercial', document.querySelector('.filter-btn[data-cat=commercial]')), 100);toggleMobile()" style="font-size:1.2rem;opacity:0.8;">• Commercial</a>
-      <a href="#" onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('industrial', document.querySelector('.filter-btn[data-cat=industrial]')), 100);toggleMobile()" style="font-size:1.2rem;opacity:0.8;">• Industrial</a>
+      <a href="#"
+        onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('residential', document.querySelector('.filter-btn[data-cat=residential]')), 100);toggleMobile()"
+        style="font-size:1.2rem;opacity:0.8;">• Residential</a>
+      <a href="#"
+        onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('commercial', document.querySelector('.filter-btn[data-cat=commercial]')), 100);toggleMobile()"
+        style="font-size:1.2rem;opacity:0.8;">• Commercial</a>
+      <a href="#"
+        onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('industrial', document.querySelector('.filter-btn[data-cat=industrial]')), 100);toggleMobile()"
+        style="font-size:1.2rem;opacity:0.8;">• Industrial</a>
     </div>
     <a href="#" onclick="showPage('blog');toggleMobile()">Blog</a>
     <a href="#" onclick="openModal();toggleMobile()" style="color:var(--gold)">Free Consultation</a>
@@ -2260,13 +2291,16 @@
           <div style="position: relative; margin-bottom: 3rem;">
             <img loading="lazy" src="assets/projects/about-main.png" alt="R&D Dream Interior Decor"
               class="about-img-main" />
-            <div style="margin-top: 1rem; font-family: var(--serif); font-size: 1rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;">
+            <div
+              style="margin-top: 1rem; font-family: var(--serif); font-size: 1rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;">
               R&D Dream Interior
             </div>
-            
+
             <div style="position: absolute; bottom: -4rem; right: -2.5rem; width: 55%; z-index: 2;">
-              <img loading="lazy" src="assets/projects/about-accent.png" alt="Interior Detail" class="about-img-accent" style="position: static; width: 100%;" />
-              <div style="margin-top: 0.5rem; font-family: var(--sans); font-size: 0.6rem; color: var(--white); opacity: 0.7; letter-spacing: 0.2em; text-transform: uppercase; text-align: right;">
+              <img loading="lazy" src="assets/projects/about-accent.png" alt="Interior Detail" class="about-img-accent"
+                style="position: static; width: 100%;" />
+              <div
+                style="margin-top: 0.5rem; font-family: var(--sans); font-size: 0.6rem; color: var(--white); opacity: 0.7; letter-spacing: 0.2em; text-transform: uppercase; text-align: right;">
                 Signature Excellence
               </div>
             </div>
@@ -2628,10 +2662,11 @@
           </div>
           <div style="padding:2rem;">
             <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-                <div
-                  style="width:40px;height:40px;background:rgba(201,162,39,0.1);border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-                  <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="Location" style="width:100%;height:100%;object-fit:cover;">
-                </div>
+              <div
+                style="width:40px;height:40px;background:rgba(201,162,39,0.1);border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+                <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="Location"
+                  style="width:100%;height:100%;object-fit:cover;">
+              </div>
               <div>
                 <h3 style="font-size:1.1rem;color:var(--white);">Branch Office</h3>
                 <p
@@ -2671,7 +2706,8 @@
           <a href="https://maps.app.goo.gl/WJpN1bWrkqoTBUca6" target="_blank" class="contact-item"
             style="text-decoration:none;">
             <div class="contact-item-icon" style="overflow:hidden;">
-              <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="Location" style="width:100%;height:100%;object-fit:cover;">
+              <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="Location"
+                style="width:100%;height:100%;object-fit:cover;">
             </div>
             <div>
               <div class="contact-item-label">Branch Office</div>
@@ -2760,8 +2796,10 @@
             design excellence and 500+ completed projects, R&D Dream is India's premier luxury interior design studio.
           </p>
           <div class="social-links">
-            <a href="https://www.instagram.com/dreaminteriordecor1?igsh=bDJvazNqeTFnbHpx" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61588648710686" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/dreaminteriordecor1?igsh=bDJvazNqeTFnbHpx" class="social-link"
+              target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61588648710686" class="social-link" target="_blank"><i
+                class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
             <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://wa.me/918766212012" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -2817,8 +2855,7 @@
     <div style="height:100px;background:var(--black);"></div>
 
     <!-- Hero -->
-    <section
-      style="background:var(--near-black);padding:8rem 5%;text-align:center;max-width:900px;margin:0 auto;">
+    <section style="background:var(--near-black);padding:8rem 5%;text-align:center;max-width:900px;margin:0 auto;">
       <div>
         <div class="section-tag" style="justify-content:center;">Our Story</div>
         <h1 class="section-title">Passion for <em>Perfect Spaces</em></h1>
@@ -2848,9 +2885,15 @@
             <div class="team-name">Mr Raja</div>
             <div class="team-role">Founder & COO</div>
             <div class="team-bio">
-              <p>Our Founder and COO Mr Raja brings over 15 years of experience in the interior design and execution industry. With a strong foundation in both creative design and project management, they have led the successful delivery of a wide range of residential and commercial projects.</p>
-              <p>Known for a hands-on approach, they oversee every stage of the process—from concept development to final execution—ensuring quality, efficiency, and attention to detail. Their leadership combines strategic thinking with practical expertise, enabling the firm to consistently meet timelines, optimize resources, and exceed client expectations.</p>
-              <p>Driven by a passion for creating functional and inspiring spaces, they continue to shape the firm’s vision and uphold its commitment to excellence.</p>
+              <p>Our Founder and COO Mr Raja brings over 15 years of experience in the interior design and execution
+                industry. With a strong foundation in both creative design and project management, they have led the
+                successful delivery of a wide range of residential and commercial projects.</p>
+              <p>Known for a hands-on approach, they oversee every stage of the process—from concept development to
+                final execution—ensuring quality, efficiency, and attention to detail. Their leadership combines
+                strategic thinking with practical expertise, enabling the firm to consistently meet timelines, optimize
+                resources, and exceed client expectations.</p>
+              <p>Driven by a passion for creating functional and inspiring spaces, they continue to shape the firm’s
+                vision and uphold its commitment to excellence.</p>
             </div>
           </div>
         </div>
@@ -2860,9 +2903,15 @@
             <div class="team-name">Ekta Rajput</div>
             <div class="team-role">Co-Founder & CFO</div>
             <div class="team-bio">
-              <p>She brings strong financial expertise and strategic insight to the firm, ensuring a solid foundation for sustainable growth. With a keen eye for budgeting, cost optimization, and financial planning, they play a vital role in maintaining efficiency across all projects.</p>
-              <p>She works closely with the leadership and execution teams to align financial discipline with creative ambitions, ensuring every project is delivered within budget without compromising on quality. Their structured approach and attention to detail support smooth operations, transparent processes, and long-term value for clients.</p>
-              <p>Committed to excellence and accountability, they help drive the firm’s vision by balancing innovation with financial prudence.</p>
+              <p>She brings strong financial expertise and strategic insight to the firm, ensuring a solid foundation
+                for sustainable growth. With a keen eye for budgeting, cost optimization, and financial planning, they
+                play a vital role in maintaining efficiency across all projects.</p>
+              <p>She works closely with the leadership and execution teams to align financial discipline with creative
+                ambitions, ensuring every project is delivered within budget without compromising on quality. Their
+                structured approach and attention to detail support smooth operations, transparent processes, and
+                long-term value for clients.</p>
+              <p>Committed to excellence and accountability, they help drive the firm’s vision by balancing innovation
+                with financial prudence.</p>
             </div>
           </div>
         </div>
@@ -2872,9 +2921,16 @@
             <div class="team-name">Sameer</div>
             <div class="team-role">Regional Sales/Marketing Head</div>
             <div class="team-bio">
-              <p>Our Regional Sales and Marketing Head leads business growth with a strong focus on client relationships, market expansion, and brand positioning. With deep insight into market trends and customer needs, they drive strategies that enhance visibility, generate opportunities, and build lasting partnerships.</p>
-              <p>They play a key role in connecting clients with our design and execution teams, ensuring a smooth transition from inquiry to project delivery. Their proactive approach, combined with strong communication and negotiation skills, helps the firm consistently expand its presence and deliver value-driven solutions.</p>
-              <p>Dedicated to driving growth and strengthening the brand, they contribute significantly to the firm’s continued success across regions.</p>
+              <p>Our Regional Sales and Marketing Head leads business growth with a strong focus on client
+                relationships, market expansion, and brand positioning. With deep insight into market trends and
+                customer needs, they drive strategies that enhance visibility, generate opportunities, and build lasting
+                partnerships.</p>
+              <p>They play a key role in connecting clients with our design and execution teams, ensuring a smooth
+                transition from inquiry to project delivery. Their proactive approach, combined with strong
+                communication and negotiation skills, helps the firm consistently expand its presence and deliver
+                value-driven solutions.</p>
+              <p>Dedicated to driving growth and strengthening the brand, they contribute significantly to the firm’s
+                continued success across regions.</p>
             </div>
           </div>
         </div>
@@ -2884,23 +2940,37 @@
             <div class="team-name">Kajal</div>
             <div class="team-role">Sales & CRM Manager</div>
             <div class="team-bio">
-              <p>Our Sales and Customer Relationship Manager plays a vital role in building strong client connections and ensuring a seamless customer experience. From the first interaction to project completion, they act as a trusted point of contact, understanding client needs and guiding them through every stage of the process.</p>
-              <p>With a focus on clear communication and personalized service, they help translate client requirements into actionable solutions, working closely with design and execution teams. Their proactive approach ensures timely updates, quick resolution of queries, and a smooth project journey.</p>
-              <p>Committed to client satisfaction and long-term relationships, they contribute to creating a positive and reliable experience for every client we serve.</p>
+              <p>Our Sales and Customer Relationship Manager plays a vital role in building strong client connections
+                and ensuring a seamless customer experience. From the first interaction to project completion, they act
+                as a trusted point of contact, understanding client needs and guiding them through every stage of the
+                process.</p>
+              <p>With a focus on clear communication and personalized service, they help translate client requirements
+                into actionable solutions, working closely with design and execution teams. Their proactive approach
+                ensures timely updates, quick resolution of queries, and a smooth project journey.</p>
+              <p>Committed to client satisfaction and long-term relationships, they contribute to creating a positive
+                and reliable experience for every client we serve.</p>
             </div>
           </div>
         </div>
         <div class="team-card">
-          <div style="aspect-ratio:3/4;background:rgba(201,162,39,0.05);display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,162,39,0.1);">
+          <div
+            style="aspect-ratio:3/4;background:rgba(201,162,39,0.05);display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,162,39,0.1);">
             <i class="fas fa-tools" style="font-size:3rem;color:var(--gold);opacity:0.5;"></i>
           </div>
           <div class="team-info">
             <div class="team-name">MEP and Automation Consultants</div>
             <div class="team-role">Technical Strategy & Smart Integration</div>
             <div class="team-bio">
-              <p>Our MEP and Automation Consultant brings specialized expertise in mechanical, electrical, plumbing, and smart system integration to ensure every space functions efficiently and intelligently. With a strong technical background, they design and implement systems that enhance performance, sustainability, and user comfort.</p>
-              <p>Working closely with the design and execution teams, they ensure seamless coordination of all services, optimizing layouts and preventing on-site challenges. Their approach combines innovation with practicality, integrating modern automation solutions that elevate convenience, safety, and energy efficiency.</p>
-              <p>Committed to precision and reliability, they play a key role in delivering well-engineered, future-ready Home/spaces.</p>
+              <p>Our MEP and Automation Consultant brings specialized expertise in mechanical, electrical, plumbing, and
+                smart system integration to ensure every space functions efficiently and intelligently. With a strong
+                technical background, they design and implement systems that enhance performance, sustainability, and
+                user comfort.</p>
+              <p>Working closely with the design and execution teams, they ensure seamless coordination of all services,
+                optimizing layouts and preventing on-site challenges. Their approach combines innovation with
+                practicality, integrating modern automation solutions that elevate convenience, safety, and energy
+                efficiency.</p>
+              <p>Committed to precision and reliability, they play a key role in delivering well-engineered,
+                future-ready Home/spaces.</p>
             </div>
           </div>
         </div>
@@ -3144,9 +3214,12 @@
 
       <div class="portfolio-filters" style="justify-content:center;">
         <button class="filter-btn active" onclick="filterPortfolio('all',this)">All Projects</button>
-        <button class="filter-btn" data-cat="residential" onclick="filterPortfolio('residential',this)">Residential</button>
-        <button class="filter-btn" data-cat="commercial" onclick="filterPortfolio('commercial',this)">Commercial</button>
-        <button class="filter-btn" data-cat="industrial" onclick="filterPortfolio('industrial',this)">Industrial</button>
+        <button class="filter-btn" data-cat="residential"
+          onclick="filterPortfolio('residential',this)">Residential</button>
+        <button class="filter-btn" data-cat="commercial"
+          onclick="filterPortfolio('commercial',this)">Commercial</button>
+        <button class="filter-btn" data-cat="industrial"
+          onclick="filterPortfolio('industrial',this)">Industrial</button>
         <button class="filter-btn" data-cat="living" onclick="filterPortfolio('living',this)">Living Room</button>
         <button class="filter-btn" data-cat="bedroom" onclick="filterPortfolio('bedroom',this)">Bedroom</button>
         <button class="filter-btn" data-cat="kitchen" onclick="filterPortfolio('kitchen',this)">Kitchen</button>
@@ -4058,110 +4131,185 @@
 
 
   <script>
-    // ─── CURSOR ───
-    const cur = document.getElementById('cursor');
-    const curF = document.getElementById('cursorFollower');
-    let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
-    document.addEventListener('mousemove', e => {
-      mouseX = e.clientX; mouseY = e.clientY;
-      cur.style.left = mouseX - 5 + 'px';
-      cur.style.top = mouseY - 5 + 'px';
+    // ─────────────────────────────────────────────
+// 🚀 COMPLETE CLEAN JS (FINAL STABLE VERSION)
+// ─────────────────────────────────────────────
+
+
+// ─── CURSOR ───
+const cur = document.getElementById('cursor');
+const curF = document.getElementById('cursorFollower');
+
+if (cur && curF) {
+  let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cur.style.left = mouseX - 5 + 'px';
+    cur.style.top = mouseY - 5 + 'px';
+  });
+
+  function animateCursor() {
+    followerX += (mouseX - followerX) * 0.1;
+    followerY += (mouseY - followerY) * 0.1;
+    curF.style.left = followerX - 18 + 'px';
+    curF.style.top = followerY - 18 + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+}
+
+
+// ─── NAVBAR SCROLL ───
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+
+// ─── REVEAL ON SCROLL ───
+function initReveal() {
+  const reveals = document.querySelectorAll('.reveal:not(.visible)');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
     });
-    function animateCursor() {
-      followerX += (mouseX - followerX) * 0.1;
-      followerY += (mouseY - followerY) * 0.1;
-      curF.style.left = followerX - 18 + 'px';
-      curF.style.top = followerY - 18 + 'px';
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
+  }, { threshold: 0.1 });
 
-    // ─── NAVBAR SCROLL ───
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-    });
+  reveals.forEach(el => observer.observe(el));
+}
+initReveal();
 
-    // ─── PAGE SWITCHING ───
-    function showPage(page) {
-      document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-      const el = document.getElementById('page-' + page);
-      if (el) { el.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-      // Re-trigger reveals on new page
-      setTimeout(initReveal, 100);
-    }
 
-    // ─── REVEAL ON SCROLL ───
-    function initReveal() {
-      const reveals = document.querySelectorAll('.reveal:not(.visible)');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-      }, { threshold: 0.1 });
-      reveals.forEach(el => observer.observe(el));
-    }
-    initReveal();
+// ─────────────────────────────────────────────
+// 📱 MOBILE MENU (FIXED)
+// ─────────────────────────────────────────────
 
-    // ─── MOBILE MENU ───
-    function toggleMobile() {
-      document.getElementById('mobileMenu').classList.toggle('open');
-    }
+function openMobile() {
+  document.getElementById('mobileMenu')?.classList.add('open');
+}
 
-    // ─── MODAL ───
-    function openModal() {
-      document.getElementById('consultModal').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal() {
-      document.getElementById('consultModal').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    document.getElementById('consultModal').addEventListener('click', function (e) {
-      if (e.target === this) closeModal();
-    });
+function closeMobile() {
+  document.getElementById('mobileMenu')?.classList.remove('open');
+}
 
-    // ─── WHATSAPP BUBBLE ───
-    function toggleWaBubble() {
-      document.getElementById('waBubble').classList.toggle('show');
-    }
-    // Auto show after 5s
+
+// ─────────────────────────────────────────────
+// 🔄 PAGE SWITCHING (FINAL FIX)
+// ─────────────────────────────────────────────
+
+function showPage(page) {
+
+  const current = document.querySelector('.page-section.active');
+  const target = document.getElementById('page-' + page);
+
+  // Same page click → just scroll top
+  if (current === target) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    closeMobile();
+    return;
+  }
+
+  // Hide all
+  document.querySelectorAll('.page-section').forEach(s =>
+    s.classList.remove('active')
+  );
+
+  // Show target
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  closeMobile();
+  setTimeout(initReveal, 100);
+}
+
+
+// ─── MODAL ───
+function openModal() {
+  document.getElementById('consultModal')?.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('consultModal')?.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+const modal = document.getElementById('consultModal');
+if (modal) {
+  modal.addEventListener('click', function (e) {
+    if (e.target === this) closeModal();
+  });
+}
+
+
+// ─── WHATSAPP BUBBLE ───
+function toggleWaBubble() {
+  document.getElementById('waBubble')?.classList.toggle('show');
+}
+
+setTimeout(() => {
+  const wa = document.getElementById('waBubble');
+  if (wa) {
+    wa.classList.add('show');
+    setTimeout(() => wa.classList.remove('show'), 6000);
+  }
+}, 5000);
+
+
+// ─── FORMS ───
+function submitForm(e) {
+  e.preventDefault();
+  const s = document.getElementById('formSuccess');
+  if (s) {
+    s.style.display = 'block';
+    setTimeout(() => s.style.display = 'none', 5000);
+  }
+  e.target.reset();
+}
+
+function submitModalForm(e) {
+  e.preventDefault();
+
+  const s = document.getElementById('modalSuccess');
+  if (s) {
+    s.style.display = 'block';
     setTimeout(() => {
-      document.getElementById('waBubble').classList.add('show');
-      setTimeout(() => document.getElementById('waBubble').classList.remove('show'), 6000);
-    }, 5000);
+      s.style.display = 'none';
+      closeModal();
+    }, 3000);
+  }
 
-    // ─── FORMS ───
-    function submitForm(e) {
-      e.preventDefault();
-      const s = document.getElementById('formSuccess');
-      s.style.display = 'block';
-      setTimeout(() => s.style.display = 'none', 5000);
-      e.target.reset();
-    }
-    function submitModalForm(e) {
-      e.preventDefault();
-      const s = document.getElementById('modalSuccess');
-      s.style.display = 'block';
-      setTimeout(() => { s.style.display = 'none'; closeModal(); }, 3000);
-      // Open WhatsApp
-      const name = e.target.querySelector('input[type="text"]').value;
-      window.open('https://wa.me/918766212012?text=Hi%20R%26D%20Dream!%20I%27d%20like%20to%20book%20a%20free%20consultation.%20My%20name%20is%20' + encodeURIComponent(name), '_blank');
-    }
+  const name = e.target.querySelector('input[type="text"]')?.value || '';
+  window.open(
+    'https://wa.me/918766212012?text=Hi%20R%26D%20Dream!%20My%20name%20is%20' + encodeURIComponent(name),
+    '_blank'
+  );
+}
 
-    // ─── PORTFOLIO FILTER ───
-    function filterPortfolio(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
-      const items = document.querySelectorAll('#portfolioGrid .port-item');
-      items.forEach(item => {
-        const itemCats = item.dataset.cat.toLowerCase().split(' ');
-        if (cat === 'all' || itemCats.includes(cat.toLowerCase())) {
-          item.style.display = '';
-          item.style.opacity = '0';
-          setTimeout(() => item.style.opacity = '1', 50);
-        } else {
-          item.style.display = 'none';
-        }
-      });
+
+// ─── PORTFOLIO FILTER ───
+function filterPortfolio(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  const items = document.querySelectorAll('#portfolioGrid .port-item');
+
+  items.forEach(item => {
+    const itemCats = item.dataset.cat.toLowerCase().split(' ');
+
+    if (cat === 'all' || itemCats.includes(cat.toLowerCase())) {
+      item.style.display = '';
+      item.style.opacity = '0';
+      setTimeout(() => item.style.opacity = '1', 50);
+    } else {
+      item.style.display = 'none';
     }
+  });
+}
   </script>
 </body>
 
