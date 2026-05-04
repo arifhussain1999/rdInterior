@@ -2796,12 +2796,15 @@
             design excellence and 500+ completed projects, R&D Dream is India's premier luxury interior design studio.
           </p>
           <div class="social-links">
-            <a href="https://www.instagram.com/dreaminteriordecor1?igsh=bDJvazNqeTFnbHpx" class="social-link"
+            <a href="https://www.instagram.com/rdderaminteriors?igsh=MXZ3NmtmcHd1M2dxZA==" class="social-link"
               target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61588648710686" class="social-link" target="_blank"><i
+            <a href="https://www.facebook.com/share/1AzVot6x5F/" class="social-link" target="_blank"><i
                 class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-            <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.youtube.com/@Rddreaminteriordecor" class="social-link"><i
+                class="fab fa-youtube"></i></a>
+            <a href="https://x.com/Rddreamint35872" class="social-link" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
             <a href="https://wa.me/918766212012" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
@@ -4132,184 +4135,184 @@
 
   <script>
     // ─────────────────────────────────────────────
-// 🚀 COMPLETE CLEAN JS (FINAL STABLE VERSION)
-// ─────────────────────────────────────────────
+    // 🚀 COMPLETE CLEAN JS (FINAL STABLE VERSION)
+    // ─────────────────────────────────────────────
 
 
-// ─── CURSOR ───
-const cur = document.getElementById('cursor');
-const curF = document.getElementById('cursorFollower');
+    // ─── CURSOR ───
+    const cur = document.getElementById('cursor');
+    const curF = document.getElementById('cursorFollower');
 
-if (cur && curF) {
-  let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
+    if (cur && curF) {
+      let mouseX = 0, mouseY = 0, followerX = 0, followerY = 0;
 
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cur.style.left = mouseX - 5 + 'px';
-    cur.style.top = mouseY - 5 + 'px';
-  });
+      document.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cur.style.left = mouseX - 5 + 'px';
+        cur.style.top = mouseY - 5 + 'px';
+      });
 
-  function animateCursor() {
-    followerX += (mouseX - followerX) * 0.1;
-    followerY += (mouseY - followerY) * 0.1;
-    curF.style.left = followerX - 18 + 'px';
-    curF.style.top = followerY - 18 + 'px';
-    requestAnimationFrame(animateCursor);
-  }
-  animateCursor();
-}
-
-
-// ─── NAVBAR SCROLL ───
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('navbar');
-  if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-
-// ─── REVEAL ON SCROLL ───
-function initReveal() {
-  const reveals = document.querySelectorAll('.reveal:not(.visible)');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
-    });
-  }, { threshold: 0.1 });
-
-  reveals.forEach(el => observer.observe(el));
-}
-initReveal();
-
-
-// ─────────────────────────────────────────────
-// 📱 MOBILE MENU (FIXED)
-// ─────────────────────────────────────────────
-
-function openMobile() {
-  document.getElementById('mobileMenu')?.classList.add('open');
-}
-
-function closeMobile() {
-  document.getElementById('mobileMenu')?.classList.remove('open');
-}
-
-
-// ─────────────────────────────────────────────
-// 🔄 PAGE SWITCHING (FINAL FIX)
-// ─────────────────────────────────────────────
-
-function showPage(page) {
-
-  const current = document.querySelector('.page-section.active');
-  const target = document.getElementById('page-' + page);
-
-  // Same page click → just scroll top
-  if (current === target) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    closeMobile();
-    return;
-  }
-
-  // Hide all
-  document.querySelectorAll('.page-section').forEach(s =>
-    s.classList.remove('active')
-  );
-
-  // Show target
-  if (target) {
-    target.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  closeMobile();
-  setTimeout(initReveal, 100);
-}
-
-
-// ─── MODAL ───
-function openModal() {
-  document.getElementById('consultModal')?.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  document.getElementById('consultModal')?.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-const modal = document.getElementById('consultModal');
-if (modal) {
-  modal.addEventListener('click', function (e) {
-    if (e.target === this) closeModal();
-  });
-}
-
-
-// ─── WHATSAPP BUBBLE ───
-function toggleWaBubble() {
-  document.getElementById('waBubble')?.classList.toggle('show');
-}
-
-setTimeout(() => {
-  const wa = document.getElementById('waBubble');
-  if (wa) {
-    wa.classList.add('show');
-    setTimeout(() => wa.classList.remove('show'), 6000);
-  }
-}, 5000);
-
-
-// ─── FORMS ───
-function submitForm(e) {
-  e.preventDefault();
-  const s = document.getElementById('formSuccess');
-  if (s) {
-    s.style.display = 'block';
-    setTimeout(() => s.style.display = 'none', 5000);
-  }
-  e.target.reset();
-}
-
-function submitModalForm(e) {
-  e.preventDefault();
-
-  const s = document.getElementById('modalSuccess');
-  if (s) {
-    s.style.display = 'block';
-    setTimeout(() => {
-      s.style.display = 'none';
-      closeModal();
-    }, 3000);
-  }
-
-  const name = e.target.querySelector('input[type="text"]')?.value || '';
-  window.open(
-    'https://wa.me/918766212012?text=Hi%20R%26D%20Dream!%20My%20name%20is%20' + encodeURIComponent(name),
-    '_blank'
-  );
-}
-
-
-// ─── PORTFOLIO FILTER ───
-function filterPortfolio(cat, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-
-  const items = document.querySelectorAll('#portfolioGrid .port-item');
-
-  items.forEach(item => {
-    const itemCats = item.dataset.cat.toLowerCase().split(' ');
-
-    if (cat === 'all' || itemCats.includes(cat.toLowerCase())) {
-      item.style.display = '';
-      item.style.opacity = '0';
-      setTimeout(() => item.style.opacity = '1', 50);
-    } else {
-      item.style.display = 'none';
+      function animateCursor() {
+        followerX += (mouseX - followerX) * 0.1;
+        followerY += (mouseY - followerY) * 0.1;
+        curF.style.left = followerX - 18 + 'px';
+        curF.style.top = followerY - 18 + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
     }
-  });
-}
+
+
+    // ─── NAVBAR SCROLL ───
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+
+    // ─── REVEAL ON SCROLL ───
+    function initReveal() {
+      const reveals = document.querySelectorAll('.reveal:not(.visible)');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) e.target.classList.add('visible');
+        });
+      }, { threshold: 0.1 });
+
+      reveals.forEach(el => observer.observe(el));
+    }
+    initReveal();
+
+
+    // ─────────────────────────────────────────────
+    // 📱 MOBILE MENU (FIXED)
+    // ─────────────────────────────────────────────
+
+    function openMobile() {
+      document.getElementById('mobileMenu')?.classList.add('open');
+    }
+
+    function closeMobile() {
+      document.getElementById('mobileMenu')?.classList.remove('open');
+    }
+
+
+    // ─────────────────────────────────────────────
+    // 🔄 PAGE SWITCHING (FINAL FIX)
+    // ─────────────────────────────────────────────
+
+    function showPage(page) {
+
+      const current = document.querySelector('.page-section.active');
+      const target = document.getElementById('page-' + page);
+
+      // Same page click → just scroll top
+      if (current === target) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        closeMobile();
+        return;
+      }
+
+      // Hide all
+      document.querySelectorAll('.page-section').forEach(s =>
+        s.classList.remove('active')
+      );
+
+      // Show target
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      closeMobile();
+      setTimeout(initReveal, 100);
+    }
+
+
+    // ─── MODAL ───
+    function openModal() {
+      document.getElementById('consultModal')?.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('consultModal')?.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    const modal = document.getElementById('consultModal');
+    if (modal) {
+      modal.addEventListener('click', function (e) {
+        if (e.target === this) closeModal();
+      });
+    }
+
+
+    // ─── WHATSAPP BUBBLE ───
+    function toggleWaBubble() {
+      document.getElementById('waBubble')?.classList.toggle('show');
+    }
+
+    setTimeout(() => {
+      const wa = document.getElementById('waBubble');
+      if (wa) {
+        wa.classList.add('show');
+        setTimeout(() => wa.classList.remove('show'), 6000);
+      }
+    }, 5000);
+
+
+    // ─── FORMS ───
+    function submitForm(e) {
+      e.preventDefault();
+      const s = document.getElementById('formSuccess');
+      if (s) {
+        s.style.display = 'block';
+        setTimeout(() => s.style.display = 'none', 5000);
+      }
+      e.target.reset();
+    }
+
+    function submitModalForm(e) {
+      e.preventDefault();
+
+      const s = document.getElementById('modalSuccess');
+      if (s) {
+        s.style.display = 'block';
+        setTimeout(() => {
+          s.style.display = 'none';
+          closeModal();
+        }, 3000);
+      }
+
+      const name = e.target.querySelector('input[type="text"]')?.value || '';
+      window.open(
+        'https://wa.me/918766212012?text=Hi%20R%26D%20Dream!%20My%20name%20is%20' + encodeURIComponent(name),
+        '_blank'
+      );
+    }
+
+
+    // ─── PORTFOLIO FILTER ───
+    function filterPortfolio(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const items = document.querySelectorAll('#portfolioGrid .port-item');
+
+      items.forEach(item => {
+        const itemCats = item.dataset.cat.toLowerCase().split(' ');
+
+        if (cat === 'all' || itemCats.includes(cat.toLowerCase())) {
+          item.style.display = '';
+          item.style.opacity = '0';
+          setTimeout(() => item.style.opacity = '1', 50);
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
   </script>
 </body>
 
