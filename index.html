@@ -2140,6 +2140,28 @@
     #mobileMenu.open {
       pointer-events: auto;
     }
+
+
+    .services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:2rem;
+    margin-top:4rem;
+}
+
+/* Tablet */
+@media(max-width:1100px){
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+}
   </style>
 </head>
 
@@ -2363,86 +2385,172 @@
 
     <!-- SERVICES PREVIEW -->
     <section id="services" style="background:var(--near-black);padding:7rem 5%;">
+      
       <div class="text-center reveal">
         <div class="section-tag">What We Offer</div>
         <h2 class="section-title">Premium Interior <em>Services</em></h2>
         <p class="section-sub">From concept to completion — every service is delivered with the precision and luxury
           your space deserves.</p>
       </div>
-      <div class="services-grid reveal">
-        <div class="service-card" onclick="showPage('services')">
-          <div class="service-num">01</div>
-          <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
-          <div class="service-name">2D / 3D Design Layouts</div>
-          <p class="service-desc">Photo-realistic 3D renders and detailed 2D floor plans that let you experience your
-            space before it's built.</p>
-          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
-              class="fas fa-arrow-right"></i></a>
+     <div class="services-grid">
+     <!-- Service 1 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=700&q=80"
+            alt="3D Design" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i
+                  class="fas fa-drafting-compass"></i></div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">2D / 3D Design Layouts</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Photo-realistic 3D
+              renderings and precise 2D floor plans that let you visualize and approve every detail of your space before
+              construction begins.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Walkthrough Videos &nbsp; ✓
+              VR-Ready Renders &nbsp; ✓ Revisions Included</div>
+          </div>
         </div>
-        <div class="service-card" onclick="showPage('services')">
-          <div class="service-num">02</div>
-          <div class="service-icon"><i class="fas fa-utensils"></i></div>
-          <div class="service-name">Modular Kitchen</div>
-          <p class="service-desc">German-engineered modular kitchens that combine form and function for the ultimate
-            culinary experience.</p>
-          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
-              class="fas fa-arrow-right"></i></a>
+
+        <!-- Service 2 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="assets/projects/kitchen-hero.png" alt="Luxury Kitchen Design"
+            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-utensils"></i>
+              </div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Modular Kitchen</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">German-engineered
+              modular kitchens with soft-close hinges, smart storage solutions, and premium countertops. Functional
+              beauty at its finest.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ European Hardware &nbsp; ✓
+              Anti-Termite Wood &nbsp; ✓ 5-Yr Warranty</div>
+          </div>
         </div>
-        <div class="service-card" onclick="showPage('services')">
-          <div class="service-num">03</div>
-          <div class="service-icon"><i class="fas fa-couch"></i></div>
-          <div class="service-name">Custom Furniture</div>
-          <p class="service-desc">Bespoke furniture crafted to your exact specifications — every piece a work of art in
-            your living space.</p>
-          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
-              class="fas fa-arrow-right"></i></a>
+
+        <!-- Service 3 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&q=80" alt="Furniture"
+            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-couch"></i>
+              </div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Furniture Customization</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Bespoke furniture
+              crafted by master artisans to your exact dimensions and style preferences — from statement sofas to custom
+              wardrobes.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Custom Dimensions &nbsp; ✓ Premium
+              Fabrics &nbsp; ✓ Handcrafted</div>
+          </div>
         </div>
-        <div class="service-card" onclick="showPage('services')">
-          <div class="service-num">04</div>
-          <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
-          <div class="service-name">False Ceiling Design</div>
-          <p class="service-desc">Transform your ceiling into a design statement with gypsum, POP, and designer lighting
-            integrations.</p>
-          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
-              class="fas fa-arrow-right"></i></a>
+
+        <!-- Service 4 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=700&q=80"
+            alt="False Ceiling" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-lightbulb"></i>
+              </div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">False Ceiling Design</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Stunning false
+              ceiling designs with integrated LED lighting, cove illumination, and designer fixtures that set the
+              perfect mood for every room.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ LED Integration &nbsp; ✓ Sound
+              Dampening &nbsp; ✓ Fire-Rated</div>
+          </div>
         </div>
-        <div class="service-card" onclick="showPage('services')">
-          <div class="service-num">05</div>
-          <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
-          <div class="service-name">Painting Services</div>
-          <p class="service-desc">Premium texture paints, designer wallpapers, and bespoke murals to bring character to
-            every wall.</p>
-          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
-              class="fas fa-arrow-right"></i></a>
+
+        <!-- Service 5 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=700&q=80"
+            alt="Painting" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i
+                  class="fas fa-paint-roller"></i></div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Painting Services</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">From premium Asian
+              Paints textures to imported wallpapers and hand-painted murals — we turn your walls into works of art.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Low-VOC Paints &nbsp; ✓ Texture
+              Work &nbsp; ✓ Wallpapers</div>
+          </div>
         </div>
-        <div class="service-card" onclick="showPage('services')">
-          <div class="service-num">06</div>
-          <div class="service-icon"><i class="fas fa-bolt"></i></div>
-          <div class="service-name">Electrical & Plumbing</div>
-          <p class="service-desc">Complete electrical and plumbing services by certified professionals — safe, reliable,
-            and code-compliant.</p>
-          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
-              class="fas fa-arrow-right"></i></a>
+
+        <!-- Service 6 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
+            alt="Electrical" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-bolt"></i></div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Electrical & Plumbing</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Complete electrical
+              rewiring, smart home automation, and plumbing solutions by ISI-certified professionals — safe, reliable,
+              code-compliant.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Smart Switches &nbsp; ✓ Home
+              Automation &nbsp; ✓ Certified Pros</div>
+          </div>
         </div>
-        <div class="service-card" onclick="showPage('services')">
-          <div class="service-num">07</div>
-          <div class="service-icon"><i class="fas fa-solar-panel"></i></div>
-          <div class="service-name">Air Conditioning & Solar System</div>
-          <p class="service-desc">Sustainable energy solutions and premium climate control systems integrated seamlessly
-            into your design.</p>
-          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
-              class="fas fa-arrow-right"></i></a>
+
+        <!-- Service 7 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&q=80" alt="Solar"
+            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i
+                  class="fas fa-solar-panel"></i></div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Sustainable energy
+              solutions and premium climate control systems integrated seamlessly into your design for comfort and
+              efficiency.</p>
+             <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">AC & Solar System</h3>
+            </div>
+             <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Solar PV Panels &nbsp; ✓ VRV/VRF
+              Systems &nbsp; ✓ Eco-Friendly</div>
+          </div>
         </div>
-        <div class="service-card" onclick="showPage('services')">
-          <div class="service-num">08</div>
-          <div class="service-icon"><i class="fas fa-microchip"></i></div>
-          <div class="service-name">Home Automation</div>
-          <p class="service-desc">Smart home solutions for lighting, security, and entertainment, controllable from your
-            fingertips.</p>
-          <a class="service-arrow" href="#" onclick="showPage('services')">Explore <i
-              class="fas fa-arrow-right"></i></a>
+
+        <!-- Service 8 -->
+        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
+          onmouseover="this.style.borderColor='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=700&q=80"
+            alt="Home Automation" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+          <div style="padding:2rem;">
+            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-microchip"></i>
+              </div>
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Home Automation</h3>
+            </div>
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Smart home solutions
+              for lighting, security, and entertainment, controllable from your fingertips for a truly futuristic living
+              experience.</p>
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Smart Lighting &nbsp; ✓ Security
+              Integration &nbsp; ✓ Voice Control</div>
+          </div>
         </div>
-      </div>
+        </div>
     </section>
 
     <!-- PROCESS -->
@@ -2962,163 +3070,7 @@
       <div class="services-grid"
         style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:2.5rem;">
 
-        <!-- Service 1 -->
-        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
-          onmouseover="this.style.borderColor='var(--gold)'"
-          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=700&q=80"
-            alt="3D Design" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-          <div style="padding:2rem;">
-            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i
-                  class="fas fa-drafting-compass"></i></div>
-              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">2D / 3D Design Layouts</h3>
-            </div>
-            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Photo-realistic 3D
-              renderings and precise 2D floor plans that let you visualize and approve every detail of your space before
-              construction begins.</p>
-            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Walkthrough Videos &nbsp; ✓
-              VR-Ready Renders &nbsp; ✓ Revisions Included</div>
-          </div>
-        </div>
-
-        <!-- Service 2 -->
-        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
-          onmouseover="this.style.borderColor='var(--gold)'"
-          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="assets/projects/kitchen-hero.png" alt="Luxury Kitchen Design"
-            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-          <div style="padding:2rem;">
-            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-utensils"></i>
-              </div>
-              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Modular Kitchen</h3>
-            </div>
-            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">German-engineered
-              modular kitchens with soft-close hinges, smart storage solutions, and premium countertops. Functional
-              beauty at its finest.</p>
-            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ European Hardware &nbsp; ✓
-              Anti-Termite Wood &nbsp; ✓ 5-Yr Warranty</div>
-          </div>
-        </div>
-
-        <!-- Service 3 -->
-        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
-          onmouseover="this.style.borderColor='var(--gold)'"
-          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700&q=80" alt="Furniture"
-            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-          <div style="padding:2rem;">
-            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-couch"></i>
-              </div>
-              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Furniture Customization</h3>
-            </div>
-            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Bespoke furniture
-              crafted by master artisans to your exact dimensions and style preferences — from statement sofas to custom
-              wardrobes.</p>
-            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Custom Dimensions &nbsp; ✓ Premium
-              Fabrics &nbsp; ✓ Handcrafted</div>
-          </div>
-        </div>
-
-        <!-- Service 4 -->
-        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
-          onmouseover="this.style.borderColor='var(--gold)'"
-          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=700&q=80"
-            alt="False Ceiling" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-          <div style="padding:2rem;">
-            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-lightbulb"></i>
-              </div>
-              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">False Ceiling Design</h3>
-            </div>
-            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Stunning false
-              ceiling designs with integrated LED lighting, cove illumination, and designer fixtures that set the
-              perfect mood for every room.</p>
-            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ LED Integration &nbsp; ✓ Sound
-              Dampening &nbsp; ✓ Fire-Rated</div>
-          </div>
-        </div>
-
-        <!-- Service 5 -->
-        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
-          onmouseover="this.style.borderColor='var(--gold)'"
-          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=700&q=80"
-            alt="Painting" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-          <div style="padding:2rem;">
-            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i
-                  class="fas fa-paint-roller"></i></div>
-              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Painting Services</h3>
-            </div>
-            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">From premium Asian
-              Paints textures to imported wallpapers and hand-painted murals — we turn your walls into works of art.</p>
-            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Low-VOC Paints &nbsp; ✓ Texture
-              Work &nbsp; ✓ Wallpapers</div>
-          </div>
-        </div>
-
-        <!-- Service 6 -->
-        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
-          onmouseover="this.style.borderColor='var(--gold)'"
-          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
-            alt="Electrical" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-          <div style="padding:2rem;">
-            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-bolt"></i></div>
-              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Electrical & Plumbing</h3>
-            </div>
-            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Complete electrical
-              rewiring, smart home automation, and plumbing solutions by ISI-certified professionals — safe, reliable,
-              code-compliant.</p>
-            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Smart Switches &nbsp; ✓ Home
-              Automation &nbsp; ✓ Certified Pros</div>
-          </div>
-        </div>
-
-        <!-- Service 7 -->
-        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
-          onmouseover="this.style.borderColor='var(--gold)'"
-          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&q=80" alt="Solar"
-            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-          <div style="padding:2rem;">
-            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i
-                  class="fas fa-solar-panel"></i></div>
-              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">AC & Solar System</h3>
-            </div>
-            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Sustainable energy
-              solutions and premium climate control systems integrated seamlessly into your design for comfort and
-              efficiency.</p>
-            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Solar PV Panels &nbsp; ✓ VRV/VRF
-              Systems &nbsp; ✓ Eco-Friendly</div>
-          </div>
-        </div>
-
-        <!-- Service 8 -->
-        <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
-          onmouseover="this.style.borderColor='var(--gold)'"
-          onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=700&q=80"
-            alt="Home Automation" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-          <div style="padding:2rem;">
-            <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i class="fas fa-microchip"></i>
-              </div>
-              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">Home Automation</h3>
-            </div>
-            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Smart home solutions
-              for lighting, security, and entertainment, controllable from your fingertips for a truly futuristic living
-              experience.</p>
-            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Smart Lighting &nbsp; ✓ Security
-              Integration &nbsp; ✓ Voice Control</div>
-          </div>
-        </div>
+       
 
       </div>
     </section>
