@@ -2142,26 +2142,89 @@
     }
 
 
-    .services-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:2rem;
-    margin-top:4rem;
-}
-
-/* Tablet */
-@media(max-width:1100px){
-    .services-grid{
-        grid-template-columns:repeat(2,1fr);
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 4rem;
     }
-}
 
-/* Mobile */
-@media(max-width:768px){
-    .services-grid{
-        grid-template-columns:1fr;
+    /* Tablet */
+    @media(max-width:1100px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
-}
+
+    /* Mobile */
+    @media(max-width:768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    .call-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 999;
+    }
+
+    .call-wrapper {
+      position: relative;
+    }
+
+    .call-main {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .call-options {
+      position: absolute;
+      bottom: 75px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: 0.3s;
+    }
+
+    .call-options a {
+      background: #111;
+      color: var(--white);
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 40px;
+      white-space: nowrap;
+      border: 1px solid rgba(201, 162, 39, 0.2);
+      font-size: 0.9rem;
+    }
+
+    .call-options a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Hover Effect */
+    .call-wrapper:hover .call-options {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
   </style>
 </head>
 
@@ -2185,10 +2248,22 @@
 
   <!-- Call Float -->
   <div class="call-float">
-    <a href="tel:+918766212012" class="call-btn">
-      <i class="fas fa-phone"></i>
-      <span>+91 87662 12012</span>
-    </a>
+
+    <div class="call-wrapper">
+
+      <!-- Main Button -->
+      <div class="call-main">
+        <i class="fas fa-phone"></i>
+      </div>
+
+      <!-- Hidden Numbers -->
+      <div class="call-options">
+        <a href="tel:+918766212012">+91 87662 12012</a>
+        <a href="tel:+919810813318">+91 9810813318</a>
+      </div>
+
+    </div>
+
   </div>
 
   <!-- NAVBAR -->
@@ -2200,7 +2275,7 @@
     <ul class="nav-links">
       <li><a href="#" onclick="showPage('home')">Home</a></li>
       <li><a href="#" onclick="showPage('about')">About</a></li>
-      
+
       <li class="dropdown">
         <a href="#" onclick="showPage('portfolio')">Portfolio <i class="fas fa-chevron-down"></i></a>
         <ul class="dropdown-menu">
@@ -2385,15 +2460,15 @@
 
     <!-- SERVICES PREVIEW -->
     <section id="services" style="background:var(--near-black);padding:7rem 5%;">
-      
+
       <div class="text-center reveal">
         <div class="section-tag">What We Offer</div>
         <h2 class="section-title">Premium Interior <em>Services</em></h2>
         <p class="section-sub">From concept to completion — every service is delivered with the precision and luxury
           your space deserves.</p>
       </div>
-     <div class="services-grid">
-     <!-- Service 1 -->
+      <div class="services-grid">
+        <!-- Service 1 -->
         <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
           onmouseover="this.style.borderColor='var(--gold)'"
           onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
@@ -2457,7 +2532,7 @@
         <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
           onmouseover="this.style.borderColor='var(--gold)'"
           onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=700&q=80"
+          <img loading="lazy" src="assets\projects\false ceiling.jpeg"
             alt="False Ceiling" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
           <div style="padding:2rem;">
             <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
@@ -2477,7 +2552,7 @@
         <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
           onmouseover="this.style.borderColor='var(--gold)'"
           onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1586105251261-72a756497a11?w=700&q=80"
+          <img loading="lazy" src="assets\projects\painting.jpeg"
             alt="Painting" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
           <div style="padding:2rem;">
             <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
@@ -2496,7 +2571,7 @@
         <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
           onmouseover="this.style.borderColor='var(--gold)'"
           onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80"
+          <img loading="lazy" src="assets\projects\electrical.jpeg"
             alt="Electrical" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
           <div style="padding:2rem;">
             <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
@@ -2515,19 +2590,36 @@
         <div style="border:1px solid rgba(201,162,39,0.15);overflow:hidden;transition:border-color 0.3s;"
           onmouseover="this.style.borderColor='var(--gold)'"
           onmouseout="this.style.borderColor='rgba(201,162,39,0.15)'">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&q=80" alt="Solar"
+
+          <img loading="lazy" src="assets\projects\ac and solar.jpeg" alt="Solar"
             style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+
           <div style="padding:2rem;">
+
+            <!-- Heading -->
             <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
-              <div class="service-icon" style="width:44px;height:44px;min-width:44px;"><i
-                  class="fas fa-solar-panel"></i></div>
-            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">Sustainable energy
-              solutions and premium climate control systems integrated seamlessly into your design for comfort and
-              efficiency.</p>
-             <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">AC & Solar System</h3>
+
+              <div class="service-icon" style="width:44px;height:44px;min-width:44px;">
+                <i class="fas fa-solar-panel"></i>
+              </div>
+
+              <h3 style="font-family:var(--serif);font-size:1.3rem;color:var(--white);">
+                AC & Solar System
+              </h3>
+
             </div>
-             <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">✓ Solar PV Panels &nbsp; ✓ VRV/VRF
-              Systems &nbsp; ✓ Eco-Friendly</div>
+
+            <!-- Description -->
+            <p style="font-size:0.82rem;line-height:1.9;color:var(--text-dim);margin-bottom:1rem;">
+              Sustainable energy solutions and premium climate control systems integrated seamlessly into your design
+              for comfort and efficiency.
+            </p>
+
+            <!-- Features -->
+            <div style="font-size:0.72rem;color:var(--gold);letter-spacing:0.1em;">
+              ✓ Solar PV Panels &nbsp; ✓ VRV/VRF Systems &nbsp; ✓ Eco-Friendly
+            </div>
+
           </div>
         </div>
 
@@ -2550,7 +2642,7 @@
               Integration &nbsp; ✓ Voice Control</div>
           </div>
         </div>
-        </div>
+      </div>
     </section>
 
     <!-- PROCESS -->
@@ -4172,7 +4264,7 @@
           </div>
           <div class="form-group">
             <label class="form-label">Phone *</label>
-            <input type="tel" class="form-control" placeholder="+91 87662 12012" required />
+            <input type="tel" class="form-control" placeholder="Your Contact" required />
           </div>
         </div>
         <div class="form-group">
