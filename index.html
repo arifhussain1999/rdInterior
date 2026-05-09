@@ -4290,6 +4290,13 @@
             <option>₹20L+</option>
           </select>
         </div>
+        <div class="form-group">
+          <label class="form-label">Nearest Location</label>
+          <select id="nearestLocation" class="form-control form-select">
+            <option>Ghaziabad</option>
+            <option>Noida</option>
+          </select>
+        </div>
         <div id="modalSuccess"
           style="display:none;padding:0.8rem;border:1px solid var(--gold);background:var(--gold-dim);color:var(--gold);font-size:0.8rem;text-align:center;">
           ✓ Booked! We'll call you within 2 hours.
@@ -4298,7 +4305,7 @@
           <i class="fab fa-whatsapp"></i> Book on WhatsApp
         </button>
         <p style="text-align:center;font-size:0.65rem;color:var(--text-dim);">Or call us directly: <a
-            href="tel:+918766212012" style="color:var(--gold);">+91 87662 12012</a></p>
+            href="tel:+918766212012" style="color:var(--gold);text-decoration:none;">+91 87662 12012</a> | <a href="tel:+919810813318" style="color:var(--gold);text-decoration:none;">+91 98108 13318</a></p>
       </form>
     </div>
   </div>
@@ -4458,8 +4465,15 @@
       }
 
       const name = e.target.querySelector('input[type="text"]')?.value || '';
+      
+      const locationSelect = document.getElementById('nearestLocation');
+      let phone = '918766212012'; // Default to Ghaziabad
+      if (locationSelect && locationSelect.value === 'Noida') {
+        phone = '919810813318';
+      }
+
       window.open(
-        'https://wa.me/918766212012?text=Hi%20R%26D%20Dream!%20My%20name%20is%20' + encodeURIComponent(name),
+        'https://wa.me/' + phone + '?text=Hi%20R%26D%20Dream!%20My%20name%20is%20' + encodeURIComponent(name),
         '_blank'
       );
     }
