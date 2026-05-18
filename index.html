@@ -2306,7 +2306,7 @@
           </li>
         </ul>
       </li>
-      <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+     
       <li><a href="#" class="nav-cta" onclick="openModal()">Free Consultation</a></li>
     </ul>
 
@@ -2332,7 +2332,7 @@
         onclick="showPage('portfolio'); setTimeout(() => filterPortfolio('industrial', document.querySelector('.filter-btn[data-cat=industrial]')), 100);toggleMobile()"
         style="font-size:1.2rem;opacity:0.8;">• Industrial</a>
     </div>
-    <a href="#" onclick="showPage('blog');toggleMobile()">Blog</a>
+   
     <a href="#" onclick="openModal();toggleMobile()" style="color:var(--gold)">Free Consultation</a>
   </div>
 
@@ -4152,111 +4152,7 @@
   </div>
 
 
-  <!-- ══════════════════════════════════════════════ -->
-  <!-- BLOG PAGE -->
-  <!-- ══════════════════════════════════════════════ -->
-  <div class="page-section" id="page-blog">
-    <div style="height:80px;background:var(--black);"></div>
-
-    <section style="padding:6rem 5%;background:var(--black);">
-      <div class="text-center">
-        <div class="section-tag">Design Insights</div>
-        <h1 class="section-title">Interior Design <em>Blog</em></h1>
-        <p style="font-size:0.9rem;color:var(--text-dim);max-width:500px;margin:0 auto;">Expert tips, design trends, and
-          inspiration for your dream home.</p>
-      </div>
-
-      <div class="blog-grid" style="margin-top:3rem;">
-        <div class="blog-card">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=900&q=80" alt="Blog"
-            class="blog-img" style="aspect-ratio:16/10;" />
-          <div class="blog-body">
-            <div class="blog-cat">Interior Tips</div>
-            <h2 class="blog-title">10 Small House Interior Tips That Make Your Space Feel Grand</h2>
-            <p class="blog-excerpt">Discover how strategic lighting, mirror placement, and clever furniture choices can
-              transform even the coziest apartments into spacious, airy sanctuaries.</p>
-            <div class="blog-meta">
-              <span><i class="fas fa-user" style="color:var(--gold);margin-right:4px;"></i> Raj Dutta</span>
-              <span><i class="fas fa-calendar" style="color:var(--gold);margin-right:4px;"></i> Dec 2024</span>
-              <span><i class="fas fa-clock" style="color:var(--gold);margin-right:4px;"></i> 6 min read</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="blog-card">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Blog"
-            class="blog-img" />
-          <div class="blog-body">
-            <div class="blog-cat">Kitchen Designs</div>
-            <h3 class="blog-title">Top Kitchen Design Trends Dominating 2025</h3>
-            <p class="blog-excerpt">From handleless cabinets to integrated appliances — the modular kitchen of 2025 is
-              smarter, sleeker, and more sustainable than ever before.</p>
-            <div class="blog-meta">
-              <span><i class="fas fa-calendar" style="color:var(--gold);margin-right:4px;"></i> Nov 2024</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="blog-card">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=600&q=80" alt="Blog"
-            class="blog-img" />
-          <div class="blog-body">
-            <div class="blog-cat">Lighting Ideas</div>
-            <h3 class="blog-title">The Art of Layered Lighting in Luxury Interiors</h3>
-            <p class="blog-excerpt">Ambient, task, and accent lighting — understanding the three layers of light that
-              separate ordinary rooms from extraordinary ones.</p>
-            <div class="blog-meta">
-              <span><i class="fas fa-calendar" style="color:var(--gold);margin-right:4px;"></i> Oct 2024</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- More blogs -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem;">
-        <div class="blog-card">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80" alt="Blog"
-            class="blog-img" />
-          <div class="blog-body">
-            <div class="blog-cat">Home Decor</div>
-            <h3 class="blog-title">5 False Ceiling Ideas That Will Blow Your Mind</h3>
-            <p class="blog-excerpt">Beyond the basic POP ceiling — explore coffered, tray, stretched, and geometric
-              false ceiling designs that add drama to any room.</p>
-            <div class="blog-meta">
-              <span><i class="fas fa-calendar" style="color:var(--gold);margin-right:4px;"></i> Sep 2024</span>
-              <span><i class="fas fa-clock" style="color:var(--gold);margin-right:4px;"></i> 4 min</span>
-            </div>
-          </div>
-        </div>
-        <div class="blog-card">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1597026381500-4af1d9f50e9f?w=600&q=80" alt="Blog"
-            class="blog-img" />
-          <div class="blog-body">
-            <div class="blog-cat">Space Saving</div>
-            <h3 class="blog-title">Smart Storage Solutions for Indian Apartments</h3>
-            <p class="blog-excerpt">Clever built-in storage, under-stair solutions, and multifunctional furniture ideas
-              designed specifically for compact urban homes.</p>
-            <div class="blog-meta">
-              <span><i class="fas fa-calendar" style="color:var(--gold);margin-right:4px;"></i> Aug 2024</span>
-              <span><i class="fas fa-clock" style="color:var(--gold);margin-right:4px;"></i> 5 min</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="footer-bottom" style="background:var(--near-black);border-top:1px solid rgba(255,255,255,0.04);">
-        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;padding:1.5rem 0;">
-          <p>© 2026 R&D Dream. All rights reserved.</p>
-          <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
-              target="_blank" style="color:var(--white);text-decoration:none;font-weight:600;">NexvoraWeb</a></p>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-
+ 
   <!-- ══════════════════════════════════════════════ -->
   <!-- CONSULTATION MODAL -->
   <!-- ══════════════════════════════════════════════ -->
