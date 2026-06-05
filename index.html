@@ -2240,6 +2240,96 @@
       visibility: visible;
       transform: translateY(0);
     }
+
+    /* ─── FAQ ACCORDION ─── */
+    #faq {
+      background: var(--black);
+      padding: 7rem 5%;
+    }
+
+    .faq-container {
+      max-width: 900px;
+      margin: 4rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .faq-item {
+      border: 1px solid rgba(201, 162, 39, 0.12);
+      background: rgba(255, 255, 255, 0.01);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+    }
+
+    .faq-item:hover {
+      border-color: var(--gold);
+      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.03);
+    }
+
+    .faq-header {
+      padding: 1.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      gap: 1.5rem;
+    }
+
+    .faq-question {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      color: var(--white);
+      font-weight: 500;
+      line-height: 1.4;
+      transition: color 0.3s;
+    }
+
+    .faq-item.active .faq-question {
+      color: var(--gold);
+    }
+
+    .faq-icon {
+      font-size: 0.9rem;
+      color: var(--gold);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(201, 162, 39, 0.3);
+      border-radius: 50%;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+
+    .faq-content {
+      max-height: 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 0 2rem;
+    }
+
+    .faq-item.active .faq-content {
+      max-height: 500px;
+      opacity: 1;
+      visibility: visible;
+      padding-bottom: 2rem;
+    }
+
+    .faq-answer {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text-dim);
+    }
   </style>
 </head>
 
@@ -2943,6 +3033,95 @@
     </section>
 
 
+
+    <!-- FAQ SECTION -->
+    <section id="faq">
+      <div class="text-center reveal">
+        <div class="section-tag">Frequently Asked Questions</div>
+        <h2 class="section-title">Design & Smart <em>Home Insights</em></h2>
+        <p class="section-sub">Expert answers to interior design and home automation questions tailored for Ghaziabad and NCR homes.</p>
+      </div>
+
+      <div class="faq-container reveal">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">How does R&D Dream design homes to handle Ghaziabad's dust and weather?</h3>
+            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Ghaziabad experiences high dust levels and extreme seasonal temperatures. To counter this, we design closed modular wardrobes and kitchens instead of open shelving, use anti-dust and easy-to-clean polyurethane (PU) finishes, and recommend double-glazed weather-sealed UPVC windows for balconies. We also seamlessly integrate premium concealed air purifiers and ventilation units into false ceilings to keep your indoor air clean.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">Can we install smart home automation in high-rise apartments in Raj Nagar Extension or Indirapuram?</h3>
+            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Yes, absolutely. We specialize in retrofit automation solutions that install directly behind your existing switchboards without any wall chipping or structural damage. This allows you to control lighting, appliances, and security while fully complying with society maintenance and builder guidelines.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">How do you handle power fluctuations and outages for smart devices in Ghaziabad?</h3>
+            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-content">
+            <div class="faq-answer">
+              To protect your smart home system from NCR's frequent power fluctuations, we install high-quality surge protectors and load balancers at the main DB board. Our systems are fully compatible with local double-battery home inverters and society backup generators, ensuring that your automation nodes automatically restore their last state smoothly when the power returns.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">How does Ghaziabad's hard water quality affect plumbing and modular designs?</h3>
+            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Ghaziabad's high TDS hard water causes scaling and corrosion. We tackle this by integrating inline centralized water softeners, using heavy-duty CPVC/PPR piping from trusted brands, and specifying scaling-resistant matte/brushed finishes for kitchen and bathroom faucets. Our modular kitchens also feature water-resistant multi-ply marine plywood to prevent any damage from moisture.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">What is your typical timeline for delivering a turnkey interior design project?</h3>
+            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-content">
+            <div class="faq-answer">
+              A standard turnkey luxury interior and automation setup takes between 45 to 60 days from blueprint approval to final handover. Because our Head Office is locally situated in Raj Nagar Extension, Ghaziabad, we deploy dedicated on-site project managers who perform daily audits, preventing delays and ensuring premium quality control.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <h3 class="faq-question">Do you assist in securing builders' or RWAs' approvals for interior work?</h3>
+            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+          </div>
+          <div class="faq-content">
+            <div class="faq-answer">
+              Yes. Before starting execution in any gated society (such as ATS, Mahagun, or Landcraft), we provide a complete set of technical drawings, including detailed MEP (Mechanical, Electrical, Plumbing) layouts, false ceiling structural details, and load requirements, to help you get quick NOCs from the building maintenance office.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- FOOTER -->
     <footer>
@@ -4311,6 +4490,27 @@
       reveals.forEach(el => observer.observe(el));
     }
     initReveal();
+
+
+    // ─── FAQ ACCORDION TOGGLE ───
+    function toggleFaq(header) {
+      const item = header.parentElement;
+      const isActive = item.classList.contains('active');
+      
+      // Close all open items
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.classList.remove('active');
+        const content = el.querySelector('.faq-content');
+        if (content) content.style.maxHeight = null;
+      });
+
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active');
+        const content = item.querySelector('.faq-content');
+        if (content) content.style.maxHeight = content.scrollHeight + "px";
+      }
+    }
 
 
     // ─────────────────────────────────────────────
