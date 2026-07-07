@@ -41,7 +41,7 @@ const blogContent = `  <!-- ═════════════════�
         <div class="blog-meta" style="display: flex; gap: 2rem; color: var(--text-dim); font-size: 0.8rem; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1.5rem;">
           <span><i class="far fa-calendar-alt"></i> June 27, 2026</span>
           <span><i class="far fa-clock"></i> 7 min read</span>
-          <span><i class="far fa-user"></i> By R&D Dream Studio</span>
+          <span><i class="far fa-user"></i> By R&D Dream Interior Decor</span>
         </div>
       </div>
     </section>
@@ -52,7 +52,7 @@ const blogContent = `  <!-- ═════════════════�
       <div style="max-width: 800px; margin: 0 auto; color: var(--text-dim); line-height: 2; font-size: 1.05rem; font-weight: 300;">
         <p style="margin-bottom: 2rem;">In today's highly competitive corporate landscape, businesses in thriving economic hubs like <strong>Noida</strong> and <strong>Ghaziabad</strong> are recognizing that a workspace is much more than just desks and chairs. It is a strategic business asset. The design, layout, and overall flow of a corporate office have a direct, scientifically proven impact on employee productivity, retention, brand positioning, and overall operational efficiency.</p>
         
-        <p style="margin-bottom: 3rem;">At <strong>R&D Dream Studio</strong>, we specialize in high-end, functional commercial workspace designs. In this comprehensive guide, we'll dive into the core design methodologies that turn standard office environments into high-performing, growth-oriented business hubs.</p>
+        <p style="margin-bottom: 3rem;">At <strong>R&D Dream Interior Decor</strong>, we specialize in high-end, functional commercial workspace designs. In this comprehensive guide, we'll dive into the core design methodologies that turn standard office environments into high-performing, growth-oriented business hubs.</p>
 
         <h3 style="font-family: var(--serif); font-size: 1.8rem; color: var(--white); margin-bottom: 1.5rem; font-weight: 400;">1. Ergonomics: The Foundation of Employee Productivity</h3>
         <p style="margin-bottom: 2rem;">Ergonomics is the science of designing the workplace to fit the user. When employees are physically comfortable, their cognitive performance improves, and physical fatigue is reduced. Incorporating height-adjustable standing desks, anatomical posture chairs, and adjustable monitor arms prevents long-term occupational strains.</p>
@@ -91,7 +91,7 @@ const blogContent = `  <!-- ═════════════════�
     <footer>
       <div class="footer-bottom" style="background:var(--near-black);border-top:1px solid rgba(255,255,255,0.04);">
         <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;padding:1.5rem 0;">
-          <p>© 2026 R&D Dream. All rights reserved.</p>
+          <p>© 2026 R&D Dream Interior Decor. All rights reserved.</p>
           <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
               target="_blank" style="color:var(--white);text-decoration:none;font-weight:600;">NexvoraWeb</a></p>
         </div>
@@ -102,14 +102,14 @@ const blogContent = `  <!-- ═════════════════�
 
 // Fix the title in the head
 let finalHtml = before + blogContent + after;
-finalHtml = finalHtml.replace(/<title>.*?<\/title>/, '<title>Office Interior Design Trends: Boost Productivity | R&D Dream</title>');
-finalHtml = finalHtml.replace(/content="R&D Dream is the best luxury home.*?"/, 'content="Discover how strategic office interior design and modern commercial workspaces boost employee productivity and business growth in Noida and Ghaziabad."');
+finalHtml = finalHtml.replace(/<title>.*?<\/title>/, '<title>Office Interior Design Trends: Boost Productivity | R&D Dream Interior Decor</title>');
+finalHtml = finalHtml.replace(/content="R&D Dream Interior Decor is the best luxury home.*?"/, 'content="Discover how strategic office interior design and modern commercial workspaces boost employee productivity and business growth in Noida and Ghaziabad."');
 
 // Change the canonical link
 finalHtml = finalHtml.replace(/<link rel="canonical" href=".*?">/, '<link rel="canonical" href="https://www.rddecors.com/commercial-office-interior-design-noida-ghaziabad.html">');
 
 // Add JSON-LD schema markup for BlogPosting just before </head>
-const schemaMarkup = '\n  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "BlogPosting",\n    "headline": "How Strategic Office Interior Design Boosts Business Productivity in Noida & Ghaziabad",\n    "description": "Discover how strategic office interior design and modern commercial workspaces boost employee productivity and business growth in Noida and Ghaziabad.",\n    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80",\n    "author": {\n      "@type": "Organization",\n      "name": "R&D Dream Studio"\n    },\n    "publisher": {\n      "@type": "Organization",\n      "name": "R&D Dream Studio",\n      "logo": {\n        "@type": "ImageObject",\n        "url": "https://www.rddecors.com/PHOTO-2026-04-29-21-58-17-removebg-preview.png"\n      }\n    },\n    "datePublished": "2026-06-27",\n    "mainEntityOfPage": "https://www.rddecors.com/commercial-office-interior-design-noida-ghaziabad.html"\n  }\n  </script>\n';
+const schemaMarkup = '\n  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "BlogPosting",\n    "headline": "How Strategic Office Interior Design Boosts Business Productivity in Noida & Ghaziabad",\n    "description": "Discover how strategic office interior design and modern commercial workspaces boost employee productivity and business growth in Noida and Ghaziabad.",\n    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1000&q=80",\n    "author": {\n      "@type": "Organization",\n      "name": "R&D Dream Interior Decor"\n    },\n    "publisher": {\n      "@type": "Organization",\n      "name": "R&D Dream Interior Decor",\n      "logo": {\n        "@type": "ImageObject",\n        "url": "https://www.rddecors.com/PHOTO-2026-04-29-21-58-17-removebg-preview.png"\n      }\n    },\n    "datePublished": "2026-06-27",\n    "mainEntityOfPage": "https://www.rddecors.com/commercial-office-interior-design-noida-ghaziabad.html"\n  }\n  </script>\n';
 
 finalHtml = finalHtml.replace('</head>', schemaMarkup + '\n</head>');
 
