@@ -156,7 +156,8 @@ const blogContent = `  <!-- ═════════════════�
 
 // Fix the title in the head
 let finalHtml = before + blogContent + after;
-finalHtml = finalHtml.replace(/<title>.*?<\/title>/, '<title>Office Interior Design Trends: Boost Productivity | R&D Dream Interior Decor</title>');
+finalHtml = finalHtml.replace(/<title>.*?<\/title>/, '<title>R&D Dream Interior Decor | Office Interior Design Trends: Boost Productivity</title>');
+finalHtml = finalHtml.replace(/property="og:title" content=".*?"/, 'property="og:title" content="R&D Dream Interior Decor | Office Interior Design Trends: Boost Productivity"');
 finalHtml = finalHtml.replace(/content="R&D Dream Interior Decor is the best luxury home.*?"/, 'content="Discover how strategic office interior design and modern commercial workspaces boost employee productivity and business growth in Noida and Ghaziabad."');
 
 // Change the canonical link

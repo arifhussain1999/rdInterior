@@ -148,7 +148,8 @@ const blogContent = `  <!-- ═════════════════�
 
 // Fix the title in the head
 let finalHtml = before + blogContent + after;
-finalHtml = finalHtml.replace(/<title>.*?<\/title>/, '<title>Quiet Luxury Interior Design Trends 2026 | R&D Dream Interior Decor</title>');
+finalHtml = finalHtml.replace(/<title>.*?<\/title>/, '<title>R&D Dream Interior Decor | Quiet Luxury Interior Design Trends 2026</title>');
+finalHtml = finalHtml.replace(/property="og:title" content=".*?"/, 'property="og:title" content="R&D Dream Interior Decor | Quiet Luxury Interior Design Trends 2026"');
 finalHtml = finalHtml.replace(/content="Premium luxury interior design studio.*?"/, 'content="Discover the top luxury interior design trends for 2026, focusing on quiet luxury, warm minimalism, bespoke customization, and patina-rich finishes."');
 
 // Change the canonical link

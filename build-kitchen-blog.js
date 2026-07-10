@@ -151,7 +151,8 @@ const blogContent = `  <!-- ═════════════════�
 
 // Fix titles, canonical and description
 let finalHtml = before + blogContent + after;
-finalHtml = finalHtml.replace(/<title>.*?<\/title>/, '<title>Vastu-Compliant Modular Kitchen Design Noida & Ghaziabad | R&D Dream Interior Decor</title>');
+finalHtml = finalHtml.replace(/<title>.*?<\/title>/, '<title>R&D Dream Interior Decor | Vastu-Compliant Modular Kitchen Design Noida & Ghaziabad</title>');
+finalHtml = finalHtml.replace(/property="og:title" content=".*?"/, 'property="og:title" content="R&D Dream Interior Decor | Vastu-Compliant Modular Kitchen Design Noida & Ghaziabad"');
 finalHtml = finalHtml.replace(/content="R&D Dream Interior Decor is the best luxury home.*?"/, 'content="Discover the best layout, color options, and materials for designing a Vastu-compliant modular kitchen in your Noida or Ghaziabad apartment. Get expert design tips today!"');
 
 // Change the canonical link
