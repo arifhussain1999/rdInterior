@@ -88,9 +88,63 @@ const blogContent = `  <!-- ═════════════════�
       </div>
     </section>
     
+    <!-- FOOTER -->
     <footer>
-      <div class="footer-bottom" style="background:var(--near-black);border-top:1px solid rgba(255,255,255,0.04);">
-        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;padding:1.5rem 0;">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="R&D Dream Interior Decor" class="logo-img">
+          </a>
+          <p class="footer-about">We transform living spaces into extraordinary experiences. With over 10 years of
+            design excellence and 500+ completed projects, R&D Dream Interior Decor is India's premier luxury interior design studio.
+          </p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/rdderaminteriors?igsh=MXZ3NmtmcHd1M2dxZA==" class="social-link"
+              target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1AzVot6x5F/" class="social-link" target="_blank"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@Rddreaminteriordecor" class="social-link"><i
+                class="fab fa-youtube"></i></a>
+            <a href="https://x.com/Rddreamint35872" class="social-link" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://wa.me/918766212012" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#services">3D Design Layouts</a></li>
+            <li><a href="index.html#services">Modular Kitchen</a></li>
+            <li><a href="index.html#services">Custom Furniture</a></li>
+            <li><a href="index.html#services">False Ceiling</a></li>
+            <li><a href="index.html#services">Painting Services</a></li>
+            <li><a href="index.html#services">Electrical Work</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#location">Ghaziabad & Noida</a></li>
+            <li><a href="tel:+918766212012">+91 87662 12012</a></li>
+            <li><a href="tel:+919718652112">+91 97186 52112</a></li>
+            <li><a href="mailto:Info@rddecors.com">Info@rddecors.com</a></li>
+            <li><a href="#">Mon–Sat: 10AM–7PM</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;">
           <p>© 2026 R&D Dream Interior Decor. All rights reserved.</p>
           <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
               target="_blank" style="color:var(--white);text-decoration:none;font-weight:600;">NexvoraWeb</a></p>
