@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Best Interior Designers in Noida & Ghaziabad | R&D Dream Interior Decor</title>
+  <title>R&D Dream Interior Decor | Best Interior Designers in Noida & Ghaziabad</title>
 
   <meta name="description"
     content="R&D Dream Interior Decor is the best luxury home interior design & decor company in Noida & Ghaziabad. We design bespoke, functional luxury spaces. Get a free consultation today!" />
@@ -18,7 +18,7 @@
   <meta name="geo.position" content="28.535516;77.391026" />
   <meta name="ICBM" content="28.535516, 77.391026" />
 
-  <meta property="og:title" content="Best Interior Designers in Noida & Ghaziabad | R&D Dream Interior Decor" />
+  <meta property="og:title" content="R&D Dream Interior Decor | Best Interior Designers in Noida & Ghaziabad" />
   <meta property="og:description"
     content="R&D Dream Interior Decor is the best luxury home interior design & decor company in Noida & Ghaziabad. We design bespoke, functional luxury spaces." />
   <meta property="og:type" content="website" />
@@ -2190,12 +2190,20 @@
       }
 
       .footer-main {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        padding: 3rem 5% 2rem;
+      }
+
+      .footer-brand {
+        grid-column: span 2;
+        margin-bottom: 1rem;
       }
 
       .footer-bottom {
         flex-direction: column;
         text-align: center;
+        padding: 1.5rem 5%;
       }
 
       section {
@@ -2210,6 +2218,62 @@
 
       .hero-h1 {
         font-size: clamp(2.2rem, 10vw, 3.5rem);
+      }
+
+      /* Testimonials Horizontal Scroll on Mobile */
+      .testimonials-wrap {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        gap: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .testimonials-wrap::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .testimonials-wrap::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .testimonials-wrap::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 3px;
+      }
+
+      .testi-card {
+        flex: 0 0 85% !important;
+        scroll-snap-align: start !important;
+      }
+
+      /* Clean Mobile FAQ - No boxes or borders, minimal layout */
+      .faq-container {
+        gap: 0 !important;
+        margin-top: 2rem !important;
+      }
+
+      .faq-item {
+        border: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        background: transparent !important;
+      }
+
+      .faq-header {
+        padding: 1.2rem 0 !important;
+      }
+
+      .faq-question {
+        font-size: 0.95rem !important;
+      }
+
+      .faq-content {
+        padding: 0 !important;
+      }
+
+      .faq-item.active .faq-content {
+        padding-bottom: 1.2rem !important;
       }
     }
 
@@ -2236,7 +2300,20 @@
       }
 
       .process-steps {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .step {
+        padding: 0.5rem !important;
+      }
+
+      .step-desc {
+        font-size: 0.75rem !important;
+      }
+
+      .step h3 {
+        font-size: 1rem !important;
       }
 
       body {
@@ -2385,23 +2462,23 @@
       margin: 4rem auto 0;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 0;
     }
 
     .faq-item {
-      border: 1px solid rgba(201, 162, 39, 0.12);
-      background: rgba(255, 255, 255, 0.01);
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: transparent;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       overflow: hidden;
     }
 
     .faq-item:hover {
-      border-color: var(--gold);
-      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.03);
+      border-bottom-color: var(--gold);
     }
 
     .faq-header {
-      padding: 1.8rem 2rem;
+      padding: 1.5rem 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -2448,14 +2525,14 @@
       opacity: 0;
       visibility: hidden;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      padding: 0 2rem;
+      padding: 0;
     }
 
     .faq-item.active .faq-content {
       max-height: 500px;
       opacity: 1;
       visibility: visible;
-      padding-bottom: 2rem;
+      padding-bottom: 1.5rem;
     }
 
     .faq-answer {
@@ -2759,16 +2836,17 @@
         <div class="about-img-wrap">
           <div style="position: relative; margin-bottom: 3rem;">
             <img loading="lazy" src="assets/projects/about-main.png"
-              alt="R&D Dream Interior Decor Luxury Interior Design & Home Decor in Noida & Ghaziabad" class="about-img-main" />
+              alt="R&D Dream Interior Decor Luxury Interior Design & Home Decor in Noida & Ghaziabad"
+              class="about-img-main" />
             <div
               style="margin-top: 1rem; font-family: var(--serif); font-size: 1rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;">
-              R&D Dream Interior Decor Interior
+              R&D Dream Interior Decor
             </div>
 
             <div style="position: absolute; bottom: -4rem; right: -2.5rem; width: 55%; z-index: 2;">
               <img loading="lazy" src="assets/projects/about-accent.png"
-                alt="Luxury Home Interior details and customized finishes by R&D Dream Interior Decor" class="about-img-accent"
-                style="position: static; width: 100%;" />
+                alt="Luxury Home Interior details and customized finishes by R&D Dream Interior Decor"
+                class="about-img-accent" style="position: static; width: 100%;" />
               <div
                 style="margin-top: 0.5rem; font-family: var(--sans); font-size: 0.6rem; color: var(--white); opacity: 0.7; letter-spacing: 0.2em; text-transform: uppercase; text-align: right;">
                 Signature Excellence
@@ -3137,7 +3215,8 @@
         <div class="testi-card">
           <div class="testi-stars">★★★★★</div>
           <div class="testi-quote">"</div>
-          <p class="testi-text">R&D Dream Interior Decor completely transformed our apartment. The 3D visualization helped us see
+          <p class="testi-text">R&D Dream Interior Decor completely transformed our apartment. The 3D visualization
+            helped us see
             exactly what we were getting, and the final result exceeded all our expectations. Truly world-class work!
           </p>
           <div class="testi-author">
@@ -3165,7 +3244,8 @@
         <div class="testi-card">
           <div class="testi-stars">★★★★★</div>
           <div class="testi-quote">"</div>
-          <p class="testi-text">Our office now feels like a place where creativity flows naturally. R&D Dream Interior Decor understood
+          <p class="testi-text">Our office now feels like a place where creativity flows naturally. R&D Dream Interior
+            Decor understood
             our brand's identity and embedded it seamlessly into the space. Outstanding work from an outstanding team.
           </p>
           <div class="testi-author">
@@ -3201,7 +3281,8 @@
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2.5rem;margin-top:3.5rem;">
         <!-- Office 1: Head Office -->
-        <div class="reveal" onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Shop+No.+1%2F2,+near+God+Valley+Farm+House,+Sehani+Khurd,+Raj+Nagar+Extension,+Ghaziabad,+Uttar+Pradesh+201003', '_blank')"
+        <div class="reveal"
+          onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Shop+No.+1%2F2,+near+God+Valley+Farm+House,+Sehani+Khurd,+Raj+Nagar+Extension,+Ghaziabad,+Uttar+Pradesh+201003', '_blank')"
           style="background:rgba(255,255,255,0.02);border:1px solid rgba(201,162,39,0.1);border-radius:4px;overflow:hidden;transition:all 0.4s;cursor:pointer;"
           onmouseover="this.style.borderColor='var(--gold)';this.style.transform='translateY(-5px)'"
           onmouseout="this.style.borderColor='rgba(201,162,39,0.1)';this.style.transform='translateY(0)'">
@@ -3327,7 +3408,8 @@
         <!-- FAQ 1 -->
         <div class="faq-item">
           <div class="faq-header" onclick="toggleFaq(this)">
-            <h3 class="faq-question">How does R&D Dream Interior Decor design homes to handle Ghaziabad's dust and weather?</h3>
+            <h3 class="faq-question">How does R&D Dream Interior Decor design homes to handle Ghaziabad's dust and
+              weather?</h3>
             <span class="faq-icon"><i class="fas fa-plus"></i></span>
           </div>
           <div class="faq-content">
@@ -3433,7 +3515,8 @@
             <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="R&D Dream Interior Decor" class="logo-img">
           </a>
           <p class="footer-about">We transform living spaces into extraordinary experiences. With over 10 years of
-            design excellence and 500+ completed projects, R&D Dream Interior Decor is India's premier luxury interior design studio.
+            design excellence and 500+ completed projects, R&D Dream Interior Decor is India's premier luxury interior
+            design studio.
           </p>
           <div class="social-links">
             <a href="https://www.instagram.com/rdderaminteriors?igsh=MXZ3NmtmcHd1M2dxZA==" class="social-link"
@@ -3473,6 +3556,10 @@
           <h4>Contact</h4>
           <ul class="footer-links">
             <li><a href="#location">Ghaziabad & Noida</a></li>
+            <li><a
+                href="https://maps.google.com/?q=Office+No.+4,+Tyagi+Market,+Sehani+Khurd,+Ghukna,+Raj+Nagar+Extension,+Ghaziabad,+Uttar+Pradesh+201003"
+                target="_blank" style="line-height:1.5;">Office No. 4, Tyagi Market, Sehani Khurd, Ghukna, Raj Nagar
+                Extension, Ghaziabad, Uttar Pradesh 201003</a></li>
             <li><a href="tel:+918766212012">+91 87662 12012</a></li>
             <li><a href="tel:+919718652112">+91 97186 52112</a></li>
             <li><a href="mailto:Info@rddecors.com">Info@rddecors.com</a></li>
@@ -3504,7 +3591,8 @@
         <div class="section-tag" style="justify-content:center;">Our Story</div>
         <h1 class="section-title">Passion for <em>Perfect Spaces</em></h1>
         <p style="font-size:1rem;line-height:2;color:var(--text-dim);margin-bottom:1.5rem;">
-          Founded in 2014, R&D Dream Interior Decor was born from a simple belief: every person deserves a space that truly reflects
+          Founded in 2014, R&D Dream Interior Decor was born from a simple belief: every person deserves a space that
+          truly reflects
           who they are. What began as a small studio in Durgapur has grown into one of West Bengal's most celebrated
           interior design firms.
         </p>
@@ -3619,10 +3707,67 @@
     </section>
 
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-      <div class="footer-bottom"
-        style="padding:1.5rem 5%;border-top:none;background:var(--near-black);border-top:1px solid rgba(255,255,255,0.04);">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="#" class="logo" onclick="showPage('home')">
+            <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="R&D Dream Interior Decor" class="logo-img">
+          </a>
+          <p class="footer-about">We transform living spaces into extraordinary experiences. With over 10 years of
+            design excellence and 500+ completed projects, R&D Dream Interior Decor is India's premier luxury interior
+            design studio.
+          </p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/rdderaminteriors?igsh=MXZ3NmtmcHd1M2dxZA==" class="social-link"
+              target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1AzVot6x5F/" class="social-link" target="_blank"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@Rddreaminteriordecor" class="social-link"><i
+                class="fab fa-youtube"></i></a>
+            <a href="https://x.com/Rddreamint35872" class="social-link" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://wa.me/918766212012" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('about')">About Us</a></li>
+            <li><a href="#" onclick="showPage('services')">Services</a></li>
+            <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+            <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">3D Design Layouts</a></li>
+            <li><a href="#">Modular Kitchen</a></li>
+            <li><a href="#">Custom Furniture</a></li>
+            <li><a href="#">False Ceiling</a></li>
+            <li><a href="#">Painting Services</a></li>
+            <li><a href="#">Electrical Work</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="#location">Ghaziabad & Noida</a></li>
+            <li><a
+                href="https://maps.google.com/?q=Office+No.+4,+Tyagi+Market,+Sehani+Khurd,+Ghukna,+Raj+Nagar+Extension,+Ghaziabad,+Uttar+Pradesh+201003"
+                target="_blank" style="line-height:1.5;">Office No. 4, Tyagi Market, Sehani Khurd, Ghukna, Raj Nagar
+                Extension, Ghaziabad, Uttar Pradesh 201003</a></li>
+            <li><a href="tel:+918766212012">+91 87662 12012</a></li>
+            <li><a href="tel:+919718652112">+91 97186 52112</a></li>
+            <li><a href="mailto:Info@rddecors.com">Info@rddecors.com</a></li>
+            <li><a href="#">Mon–Sat: 10AM–7PM</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
         <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;">
           <p>© 2026 R&D Dream Interior Decor. All rights reserved.</p>
           <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
@@ -4828,9 +4973,68 @@
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-      <div class="footer-bottom" style="background:var(--near-black);border-top:1px solid rgba(255,255,255,0.04);">
-        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;padding:1.5rem 0;">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="#" class="logo" onclick="showPage('home')">
+            <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="R&D Dream Interior Decor" class="logo-img">
+          </a>
+          <p class="footer-about">We transform living spaces into extraordinary experiences. With over 10 years of
+            design excellence and 500+ completed projects, R&D Dream Interior Decor is India's premier luxury interior
+            design studio.
+          </p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/rdderaminteriors?igsh=MXZ3NmtmcHd1M2dxZA==" class="social-link"
+              target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1AzVot6x5F/" class="social-link" target="_blank"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@Rddreaminteriordecor" class="social-link"><i
+                class="fab fa-youtube"></i></a>
+            <a href="https://x.com/Rddreamint35872" class="social-link" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://wa.me/918766212012" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('about')">About Us</a></li>
+            <li><a href="#" onclick="showPage('services')">Services</a></li>
+            <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+            <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">3D Design Layouts</a></li>
+            <li><a href="#">Modular Kitchen</a></li>
+            <li><a href="#">Custom Furniture</a></li>
+            <li><a href="#">False Ceiling</a></li>
+            <li><a href="#">Painting Services</a></li>
+            <li><a href="#">Electrical Work</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="#location">Ghaziabad & Noida</a></li>
+            <li><a
+                href="https://maps.google.com/?q=Office+No.+4,+Tyagi+Market,+Sehani+Khurd,+Ghukna,+Raj+Nagar+Extension,+Ghaziabad,+Uttar+Pradesh+201003"
+                target="_blank" style="line-height:1.5;">Office No. 4, Tyagi Market, Sehani Khurd, Ghukna, Raj Nagar
+                Extension, Ghaziabad, Uttar Pradesh 201003</a></li>
+            <li><a href="tel:+918766212012">+91 87662 12012</a></li>
+            <li><a href="tel:+919718652112">+91 97186 52112</a></li>
+            <li><a href="mailto:Info@rddecors.com">Info@rddecors.com</a></li>
+            <li><a href="#">Mon–Sat: 10AM–7PM</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;">
           <p>© 2026 R&D Dream Interior Decor. All rights reserved.</p>
           <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
               target="_blank" style="color:var(--white);text-decoration:none;font-weight:600;">NexvoraWeb</a></p>
@@ -4871,11 +5075,14 @@
 
         <div class="blog-card reveal" onclick="window.location.href='vastu-modular-kitchen-design-noida-ghaziabad.html'"
           style="cursor: pointer;">
-          <img loading="lazy" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=700&q=80" alt="Vastu Modular Kitchen Design Noida" class="blog-img" />
+          <img loading="lazy" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=700&q=80"
+            alt="Vastu Modular Kitchen Design Noida" class="blog-img" />
           <div class="blog-body">
             <div class="blog-cat">Kitchen Design</div>
-            <h3 class="blog-title">Vastu-Compliant Modular Kitchen Design: Layouts & Tips for Noida & Ghaziabad Homes</h3>
-            <p class="blog-excerpt">Discover the best layout orientations, color strategies, and functional materials for a high-performing Vastu kitchen in Noida & Ghaziabad.</p>
+            <h3 class="blog-title">Vastu-Compliant Modular Kitchen Design: Layouts & Tips for Noida & Ghaziabad Homes
+            </h3>
+            <p class="blog-excerpt">Discover the best layout orientations, color strategies, and functional materials
+              for a high-performing Vastu kitchen in Noida & Ghaziabad.</p>
             <div class="blog-meta">
               <span><i class="far fa-calendar-alt"></i> July 4, 2026</span>
               <span><i class="far fa-clock"></i> 6 min read</span>
@@ -4918,9 +5125,68 @@
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-      <div class="footer-bottom" style="background:var(--near-black);border-top:1px solid rgba(255,255,255,0.04);">
-        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;padding:1.5rem 0;">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="#" class="logo" onclick="showPage('home')">
+            <img src="PHOTO-2026-04-29-21-58-17-removebg-preview.png" alt="R&D Dream Interior Decor" class="logo-img">
+          </a>
+          <p class="footer-about">We transform living spaces into extraordinary experiences. With over 10 years of
+            design excellence and 500+ completed projects, R&D Dream Interior Decor is India's premier luxury interior
+            design studio.
+          </p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/rdderaminteriors?igsh=MXZ3NmtmcHd1M2dxZA==" class="social-link"
+              target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1AzVot6x5F/" class="social-link" target="_blank"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@Rddreaminteriordecor" class="social-link"><i
+                class="fab fa-youtube"></i></a>
+            <a href="https://x.com/Rddreamint35872" class="social-link" target="_blank">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://wa.me/918766212012" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('about')">About Us</a></li>
+            <li><a href="#" onclick="showPage('services')">Services</a></li>
+            <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+            <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">3D Design Layouts</a></li>
+            <li><a href="#">Modular Kitchen</a></li>
+            <li><a href="#">Custom Furniture</a></li>
+            <li><a href="#">False Ceiling</a></li>
+            <li><a href="#">Painting Services</a></li>
+            <li><a href="#">Electrical Work</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="#location">Ghaziabad & Noida</a></li>
+            <li><a
+                href="https://maps.google.com/?q=Office+No.+4,+Tyagi+Market,+Sehani+Khurd,+Ghukna,+Raj+Nagar+Extension,+Ghaziabad,+Uttar+Pradesh+201003"
+                target="_blank" style="line-height:1.5;">Office No. 4, Tyagi Market, Sehani Khurd, Ghukna, Raj Nagar
+                Extension, Ghaziabad, Uttar Pradesh 201003</a></li>
+            <li><a href="tel:+918766212012">+91 87662 12012</a></li>
+            <li><a href="tel:+919718652112">+91 97186 52112</a></li>
+            <li><a href="mailto:Info@rddecors.com">Info@rddecors.com</a></li>
+            <li><a href="#">Mon–Sat: 10AM–7PM</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;">
           <p>© 2026 R&D Dream Interior Decor. All rights reserved.</p>
           <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
               target="_blank" style="color:var(--white);text-decoration:none;font-weight:600;">NexvoraWeb</a></p>
