@@ -41,7 +41,7 @@ const blogContent = `  <!-- ═════════════════�
         <div class="blog-meta" style="display: flex; gap: 2rem; color: var(--text-dim); font-size: 0.8rem; margin-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1.5rem;">
           <span><i class="far fa-calendar-alt"></i> June 1, 2026</span>
           <span><i class="far fa-clock"></i> 5 min read</span>
-          <span><i class="far fa-user"></i> By R&D Dream Studio</span>
+          <span><i class="far fa-user"></i> By R&D Dream Interior Decor</span>
         </div>
       </div>
     </section>
@@ -72,7 +72,7 @@ const blogContent = `  <!-- ═════════════════�
         <h3 style="font-family: var(--serif); font-size: 1.8rem; color: var(--white); margin-bottom: 1.5rem; font-weight: 400;">4. Sensorial and Organic Luxe</h3>
         <p style="margin-bottom: 3rem;">Design in 2026 engages all the senses. From the satisfying weight of a solid bronze door handle to the acoustic dampening of a heavy boucle fabric, every detail is considered. <strong>Organic Luxe</strong> blends natural silhouettes and biophilic design with high-end execution, bringing the serenity of nature indoors.</p>
 
-        <p style="margin-bottom: 2rem;">Ready to bring quiet luxury to your home? The design experts at R&D Dream Studio are here to turn your vision into a reality.</p>
+        <p style="margin-bottom: 2rem;">Ready to bring quiet luxury to your home? The design experts at R&D Dream Interior Decor are here to turn your vision into a reality.</p>
         
         <div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
           <a href="#" class="btn-gold" onclick="openModal()" style="font-size: 0.8rem; padding: 1.2rem 3rem;">Book a Free Design Consultation</a>
@@ -83,7 +83,7 @@ const blogContent = `  <!-- ═════════════════�
     <footer>
       <div class="footer-bottom" style="background:var(--near-black);border-top:1px solid rgba(255,255,255,0.04);">
         <div style="display:flex;flex-direction:column;gap:5px;width:100%;text-align:center;padding:1.5rem 0;">
-          <p>© 2026 R&D Dream. All rights reserved.</p>
+          <p>© 2026 R&D Dream Interior Decor. All rights reserved.</p>
           <p style="opacity: 0.7; font-size: 0.72rem;">Crafted with 🤎 by <a href="https://nexvoraweb.in"
               target="_blank" style="color:var(--white);text-decoration:none;font-weight:600;">NexvoraWeb</a></p>
         </div>
@@ -94,7 +94,7 @@ const blogContent = `  <!-- ═════════════════�
 
 // Fix the title in the head
 let finalHtml = before + blogContent + after;
-finalHtml = finalHtml.replace(/<title>.*?<\/title>/, '<title>Quiet Luxury Interior Design Trends 2026 | R&D Dream</title>');
+finalHtml = finalHtml.replace(/<title>.*?<\/title>/, '<title>Quiet Luxury Interior Design Trends 2026 | R&D Dream Interior Decor</title>');
 finalHtml = finalHtml.replace(/content="Premium luxury interior design studio.*?"/, 'content="Discover the top luxury interior design trends for 2026, focusing on quiet luxury, warm minimalism, bespoke customization, and patina-rich finishes."');
 
 // Change the canonical link
