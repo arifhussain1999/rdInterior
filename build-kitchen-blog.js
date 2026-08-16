@@ -42,6 +42,7 @@ const blogContent = `  <!-- ═════════════════�
           <span><i class="far fa-calendar-alt"></i> July 4, 2026</span>
           <span><i class="far fa-clock"></i> 6 min read</span>
           <span><i class="far fa-user"></i> By R&D Dream Interior Decor</span>
+          <span><i class="far fa-user"></i> By R&D Dream Interior Decor</span>
         </div>
       </div>
     </section>
